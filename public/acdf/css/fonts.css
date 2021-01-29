@@ -1,0 +1,114 @@
+﻿@font-face {
+	font-family: Montserrat-Black; /* Имя шрифта */
+   src: url(../fonts/Montserrat-Black.otf); /* Путь к файлу со шрифтом */
+}
+@font-face {
+	font-family: Montserrat-BlackItalic; /* Имя шрифта */
+   src: url(../fonts/Montserrat-BlackItalic.otf); /* Путь к файлу со шрифтом */
+}
+@font-face {
+	font-family: Montserrat-Bold; /* Имя шрифта */
+   src: url(../fonts/Montserrat-Bold.otf); /* Путь к файлу со шрифтом */
+}
+@font-face {
+	font-family: Montserrat-BoldItalic; /* Имя шрифта */
+   src: url(../fonts/Montserrat-BoldItalic.otf); /* Путь к файлу со шрифтом */
+}
+@font-face {
+	font-family: Montserrat-ExtraBold; /* Имя шрифта */
+   src: url(../fonts/Montserrat-ExtraBold.otf); /* Путь к файлу со шрифтом */
+}
+@font-face {
+	font-family: Montserrat-ExtraBoldItalic; /* Имя шрифта */
+   src: url(../fonts/Montserrat-ExtraBoldItalic.otf); /* Путь к файлу со шрифтом */
+}
+@font-face {
+	font-family: Montserrat-ExtraLight; /* Имя шрифта */
+   src: url(../fonts/Montserrat-ExtraLight.otf); /* Путь к файлу со шрифтом */
+}
+@font-face {
+	font-family: Montserrat-ExtraLightItalic; /* Имя шрифта */
+   src: url(../fonts/Montserrat-ExtraLightItalic.otf); /* Путь к файлу со шрифтом */
+}
+@font-face {
+	font-family: Montserrat-Italic; /* Имя шрифта */
+   src: url(../fonts/Montserrat-Italic.otf); /* Путь к файлу со шрифтом */
+}
+@font-face {
+	font-family: Montserrat-Light; /* Имя шрифта */
+   src: url(../fonts/Montserrat-Light.otf); /* Путь к файлу со шрифтом */
+}
+@font-face {
+	font-family: Montserrat-LightItalic; /* Имя шрифта */
+   src: url(../fonts/Montserrat-LightItalic.otf); /* Путь к файлу со шрифтом */
+}
+@font-face {
+	font-family: Montserrat-Medium; /* Имя шрифта */
+   src: url(../fonts/Montserrat-Medium.otf); /* Путь к файлу со шрифтом */
+}
+@font-face {
+	font-family: Montserrat-MediumItalic; /* Имя шрифта */
+   src: url(../fonts/Montserrat-MediumItalic.otf); /* Путь к файлу со шрифтом */
+}
+@font-face {
+	font-family: Montserrat-Regular; /* Имя шрифта */
+   src: url(../fonts/Montserrat-Regular.otf); /* Путь к файлу со шрифтом */
+}
+@font-face {
+	font-family: Montserrat-SemiBold; /* Имя шрифта */
+   src: url(../fonts/Montserrat-SemiBold.otf); /* Путь к файлу со шрифтом */
+}
+@font-face {
+	font-family: Montserrat-SemiBoldItalic; /* Имя шрифта */
+   src: url(../fonts/Montserrat-SemiBoldItalic.otf); /* Путь к файлу со шрифтом */
+}
+@font-face {
+	font-family: Montserrat-Thin; /* Имя шрифта */
+   src: url(../fonts/Montserrat-Thin.otf); /* Путь к файлу со шрифтом */
+}
+@font-face {
+	font-family: Montserrat-ThinItalic; /* Имя шрифта */
+   src: url(../fonts/Montserrat-ThinItalic.otf); /* Путь к файлу со шрифтом */
+}
+@font-face {
+	font-family: Montserrat-ThinItalic; /* Имя шрифта */
+   src: url(../fonts/Montserrat-ThinItalic.otf); /* Путь к файлу со шрифтом */
+}
+@font-face {
+	font-family: Roboto-Light; /* Имя шрифта */
+   src: url(../fonts/Roboto-Light.ttf); /* Путь к файлу со шрифтом */
+}
+@font-face {
+	font-family: Roboto-Regular; /* Имя шрифта */
+   src: url(../fonts/Roboto-Regular.ttf); /* Путь к файлу со шрифтом */
+}
+@font-face {
+	font-family: Oswald-Light; /* Имя шрифта */
+   src: url(../fonts/Oswald-Light.ttf?v=1); /* Путь к файлу со шрифтом */
+}
+@font-face {
+	font-family: Oswald-Regular; /* Имя шрифта */
+   src: url(../fonts/Oswald-Regular.ttf?v=1); /* Путь к файлу со шрифтом */
+}
+@font-face {
+	font-family: Oswald-Medium; /* Имя шрифта */
+   src: url(../fonts/Oswald-Medium.ttf?v=1); /* Путь к файлу со шрифтом */
+}
+@font-face {
+	font-family: Oswald-ExtraLight; /* Имя шрифта */
+   src: url(../fonts/Oswald-ExtraLight.ttf?v=1); /* Путь к файлу со шрифтом */
+}
+
+@font-face {
+    font-family: "Roboto";
+    font-weight: normal;
+    font-style: normal;
+    src: url("../fonts/RobotoRegular/RobotoRegular.eot");
+    src: url("../fonts/RobotoRegular/RobotoRegular.eot?#iefix") format("embedded-opentype"), url("../fonts/RobotoRegular/RobotoRegular.woff") format("woff"), url("../fonts/RobotoRegular/RobotoRegular.ttf") format("truetype"); }
+
+@font-face {
+    font-family: "Roboto";
+    font-weight: bold;
+    font-style: normal;
+    src: url("../fonts/RobotoBold/RobotoBold.eot");
+    src: url("../fonts/RobotoBold/RobotoBold.eot?#iefix") format("embedded-opentype"), url("../fonts/RobotoBold/RobotoBold.woff") format("woff"), url("../fonts/RobotoBold/RobotoBold.ttf") format("truetype"); }
