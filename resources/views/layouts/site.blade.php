@@ -33,13 +33,13 @@
 
 <body>
 
-@include('layouts._header', ['header_menu' => menu('header-menu')])
+{{--@include('layouts._header', ['header_menu' => menu('header-menu')])--}}
 
 <div class="site-content-wrap">
     @yield('content')
 </div>
 
-@include('layouts._footer', ['footer_menu' => menu('footer-menu'), 'contacts' => getContacts()])
+{{--@include('layouts._footer', ['footer_menu' => menu('footer-menu'), 'contacts' => getContacts()])--}}
 
 <script src="{{ asset('/acdf/js/jquery.min.js') }}"></script>
 <script src="{{ asset('/acdf/js/bootstrap.min.js') }}"></script>
