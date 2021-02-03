@@ -19,5 +19,5 @@ use Illuminate\Support\Facades\Route;
 
 
 //function () {
-//    Route::get('/', [\App\Http\Controllers\MainController::class, 'index'])->name();
+//    Route::get('/', [\App\Http\Controllers\MainController::class, 'index'])->name('home');
 //}

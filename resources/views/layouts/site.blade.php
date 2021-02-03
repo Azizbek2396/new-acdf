@@ -33,7 +33,7 @@
 
 <body>
 
-{{--@include('layouts._header', ['header_menu' => menu('header-menu')])--}}
+@include('layouts._header', ['header_menu' => menu('header-menu')])
 
 <div class="site-content-wrap">
     @yield('content')
