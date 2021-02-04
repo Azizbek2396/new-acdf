@@ -1,5 +1,5 @@
 @extends('layouts.site')
-{{--@section('title', __('main.home'))--}}
+@section('title', __('main.home'))
 
 {{--@section('content')--}}
 

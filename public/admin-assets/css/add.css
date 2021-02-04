@@ -1,0 +1,12 @@
+#page-wrapper{
+    padding-bottom: 40px;
+    padding-top: 50px;
+}
+.object-link{
+	margin: 40px 0 0 20px;
+}
+.ico-Box{
+	background: #000;
+	padding: 10px;
+	display: inline-block;
+}
