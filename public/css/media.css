@@ -1,0 +1,236 @@
+/*
+font-family: "OpenSansLight";
+font-family: "OpenSansBold";
+font-family: "OpenSansItalic";
+font-family: "OpenSansLightItalic";
+font-family: "OpenSansRegular";
+font-family: "OpenSansSemiBold";
+*/
+@media screen and (max-width: 1100px) {
+  .itemsList ul {
+    margin: -10px -10px 0 -10px; }
+    .itemsList ul li {
+      padding: 10px; }
+  .itemsList.items4 ul li.topItem .itemBox {
+    height: 660px; }
+  .galleryWrap .row20 {
+    margin: 0 -10px; }
+    .galleryWrap .row20 [class^="colp20-"] {
+      padding: 0 10px; }
+  .members ul {
+    margin: -10px -10px 0; }
+    .members ul li {
+      padding: 10px; }
+  .headerRight {
+    max-width: 50%; } }
+
+@media screen and (max-width: 1000px) {
+  .header .searchForm,
+  .header .btnSearch {
+    display: none !important; }
+  .headerNav {
+    padding: 20px 0; }
+    .headerNav .btnSearch {
+      display: block !important; }
+    .headerNav nav {
+      display: none; }
+  .openSearch .headerNav .searchForm {
+    display: block !important; }
+  .btnNav {
+    display: block; }
+  #mobHeaderNavBar {
+    display: block;
+    right: -300px; }
+  .openMenu {
+    overflow: hidden; }
+    .openMenu #mobHeaderNavBar {
+      right: 0px; }
+  .footerNav ul li {
+    padding: 0 10px; }
+  .itemsList.items4 ul li {
+    width: 33.3333%; }
+  .itemsList.items4 ul li.topItem {
+    width: 66.666666%; }
+  .galleryWrap .colp20-9 {
+    width: 66.6666%; }
+  .galleryWrap .colp20-3 {
+    width: 33.3333%; }
+  .galleryItem {
+    height: 500px; }
+  .galleryTitle {
+    font-size: 22px; }
+  .verticalItem a {
+    height: 500px; }
+  .section {
+    padding: 30px 0; }
+  .mainBanner {
+    margin: 0 0 30px; }
+  .members ul li {
+    width: 25%; } }
+
+@media screen and (max-width: 900px) {
+  .itemsList ul li {
+    width: 50%; }
+  .itemsList.items4 ul li {
+    width: 50%; }
+    .itemsList.items4 ul li .itemBox {
+      height: auto; }
+  .itemsList.items4 ul li.topItem {
+    width: 100%; }
+    .itemsList.items4 ul li.topItem .itemBox {
+      height: auto; }
+      .itemsList.items4 ul li.topItem .itemBox .itemTitle,
+      .itemsList.items4 ul li.topItem .itemBox .itemDesc {
+        height: auto;
+        min-height: 0px; }
+      .itemsList.items4 ul li.topItem .itemBox .itemDesc {
+        margin: 0 0 30px; }
+  .galleryWrap .colp20-9 {
+    width: 100%; }
+  .galleryWrap .colp20-3 {
+    width: 100%; }
+  .headerPhraseWrap{
+    width: 70%!important;
+  }
+  .gerb{
+    margin: 20px 20px 20px 0!important;
+  }
+  .headerRight {
+    float: none;
+    max-width: 100%; }
+  .members ul li {
+    width: 33.33333%; } }
+
+@media screen and (max-width: 767px) {
+  body {
+    width: 100%;
+    min-width: 320px;
+    overflow-x: hidden; }
+  .mainContainer {
+    width: 100%; }
+  .row20 {
+    margin: 0; }
+  .colp20-12,
+  .colp20-11,
+  .colp20-10,
+  .colp20-9,
+  .colp20-8,
+  .colp20-7,
+  .colp20-6,
+  .colp20-5,
+  .colp20-4,
+  .colp20-3,
+  .colp20-2,
+  .colp20-1 {
+    display: block;
+    margin: 0 0 20px;
+    float: none;
+    width: 100%;
+    padding: 0; }
+  .headerRight {
+    float: none;
+    max-width: 100%; }
+  .headerPhrase {
+    width: 100%;
+    float: left;
+    padding: 0 15px; }
+    .headerPhrase:before {
+      left: -6px; }
+    .headerPhrase:after {
+      right: -6px; }
+  .headerPhraseAuthor {
+    width: 100%;
+    overflow: hidden; }
+  .mainBanner {
+    height: 460px;
+    line-height: 400px; }
+  .mainBannerText .phrase {
+    font-size: 26px; }
+  .bannerText {
+    width: 100%; }
+  .header .langs {
+    display: none; }
+  #mobHeaderNavBar .langs {
+    display: block; }
+  .members ul li {
+    width: 50%; } }
+
+@media screen and (max-width: 600px) {
+  .itemsList.items4 ul li,
+  .itemsList ul li {
+    width: 100%; }
+    .itemsList.items4 ul li .itemBox,
+    .itemsList ul li .itemBox {
+      height: auto; }
+      .itemsList.items4 ul li .itemBox .itemTitle,
+      .itemsList ul li .itemBox .itemTitle {
+        height: auto; }
+      .itemsList.items4 ul li .itemBox .itemDesc,
+      .itemsList ul li .itemBox .itemDesc {
+        height: auto; }
+  .section {
+    padding: 20px 0; }
+  .mainBanner {
+    margin: 0 0 20px; }
+  .sectionTitle h2 {
+    font-size: 28px; }
+  .itemsList.items4 ul li.topItem .itemTitle {
+    font-size: 22px; }
+  .itemsList.items4 ul li.topItem .itemImage {
+    margin: 0 0 15px; }
+  .itemImage {
+    margin: 0 0 15px; }
+  .mainBannerText .phrase {
+    font-size: 22px; }
+  .subscriberForm .SFfield {
+    width: 100%;
+    float: none;
+    margin: 0 0 10px; }
+  .subscriberForm .btn1 {
+    width: 100%;
+    float: none; }
+  .galleryItem {
+    height: 400px; }
+  .verticalItem a {
+    height: 400px; }
+  .contactsBlock {
+    padding: 20px 15px; }
+  .contacts li {
+    font-size: 16px;
+    margin: 0 0 15px; }
+  .header {
+    padding: 10px 0; }
+  .postContent {
+    font-size: 15px; }
+  .bannerTitle {
+    font-size: 26px; } }
+
+@media screen and (max-width: 480px) {
+  .galleryWrap {
+    margin: 0 -15px; }
+  .galleryItem {
+    height: 300px; }
+  .verticalItem a {
+    height: 300px; }
+  .gallerySlider .owl-nav .owl-prev {
+    left: 10px; }
+  .gallerySlider .owl-nav .owl-next {
+    right: 10px; }
+  .galleryNumber {
+    font-size: 20px;
+    margin: 0 0 10px; }
+  .footerNav ul li {
+    display: block;
+    margin: 0 0 5px; }
+  .members ul li {
+    width: 100%; }
+  .gerb{
+    display: none!important;
+    } 
+  .headerPhraseWrap{
+    width: 100%!important;
+    }
+  .headerPhrase{
+    padding: 0!important;
+    margin: 0 0 10px 0!important;
+    }}

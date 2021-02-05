@@ -48,9 +48,9 @@
 {{--            <li>--}}
 {{--                <a href="{{ route('social-networks.index') }}"><i class="fa fa-table fa-fw"></i> Социальные сети</a>--}}
 {{--            </li>--}}
-{{--            <li>--}}
-{{--                <a href="{{ route('menu.index') }}"><i class="fa fa-table fa-fw"></i> Меню</a>--}}
-{{--            </li>--}}
+            <li>
+                <a href="{{ route('menu.index') }}"><i class="fa fa-table fa-fw"></i> Меню</a>
+            </li>
 {{--            @role('admin')--}}
 {{--            <?php /*--}}
 {{--            <li>--}}
