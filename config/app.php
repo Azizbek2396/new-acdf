@@ -184,6 +184,7 @@ return [
 
 //        Mcamara\LaravelLocalization\LaravelLocalization::class,
         App\Providers\LangServiceProvider::class,
+        Collective\Html\HtmlServiceProvider::class,
 
     ],
 
@@ -238,7 +239,8 @@ return [
         'View' => Illuminate\Support\Facades\View::class,
 
 //        'LaravelLocalization' => Mcamara\LaravelLocalization\LaravelLocalization::class
-
+        'Form'  => Collective\Html\FormFacade::class,
+        'Html'  => Collective\Html\HtmlFacade::class
     ],
 
 ];
