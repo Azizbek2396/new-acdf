@@ -39,6 +39,8 @@ function () {
        Route::post('/menu/{menu}/create-store', [\App\Http\Controllers\Admin\MenuController::class, 'store_item'])->name('menu.store-item');
        Route::get('/menu/{menu}/create-item/{item}/edit', [\App\Http\Controllers\Admin\MenuController::class, 'edit_item'])->name('menu.edit-item');
        Route::put('/menu/{menu}/create-item/{item}', [\App\Http\Controllers\Admin\MenuController::class, 'update_item'])->name('menu.update-item');
+       Route::resource('/textblocks', \App\Http\Controllers\Admin\TextBlocksController::class);
+       Route::resource('/mainbanners', \App\Http\Controllers\Admin\BannersController::class);
 
     });
 });

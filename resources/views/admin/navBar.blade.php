@@ -37,9 +37,9 @@
 {{--            <li>--}}
 {{--                <a href="{{ route('videos.index') }}"><i class="fa fa-table fa-fw"></i> Видеогалерея</a>--}}
 {{--            </li>--}}
-{{--            <li>--}}
-{{--                <a href="{{ route('mainbanners.index') }}"><i class="fa fa-table fa-fw"></i> Баннеры</a>--}}
-{{--            </li>--}}
+            <li>
+                <a href="{{ route('mainbanners.index') }}"><i class="fa fa-table fa-fw"></i> Баннеры</a>
+            </li>
 {{--            <?php /* ?>--}}
 {{--            <li>--}}
 {{--                <a href="{{ route('employees.index') }}"><i class="fa fa-table fa-fw"></i> Руководство</a>--}}
@@ -66,9 +66,9 @@
 {{--            <li>--}}
 {{--                <a href="{{ route('options.index') }}"><i class="fa fa-table fa-fw"></i> Контакты</a>--}}
 {{--            </li>--}}
-{{--            <li>--}}
-{{--                <a href="{{ route('textblocks.index') }}"><i class="fa fa-table fa-fw"></i> Текстовые блоки</a>--}}
-{{--            </li>--}}
+            <li>
+                <a href="{{ route('textblocks.index') }}"><i class="fa fa-table fa-fw"></i> Текстовые блоки</a>
+            </li>
 {{--            <li>--}}
 {{--                <a href="{{ route('blocks.index') }}"><i class="fa fa-table fa-fw"></i> Блоки</a>--}}
 {{--            </li>--}}

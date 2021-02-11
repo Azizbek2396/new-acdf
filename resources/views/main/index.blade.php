@@ -1,28 +1,28 @@
 @extends('layouts.site')
 @section('title', __('main.home'))
 
-{{--@section('content')--}}
+@section('content')
 
-{{--    <!-- slider begin -->--}}
-{{--    <?php if ($banners): ?>--}}
-{{--    <div id="slider">--}}
-{{--        <div class="slider-main owl-carousel owl-theme">--}}
-{{--            <?php foreach ($banners as $banner): ?>--}}
-{{--            <a href="{{ !empty($banner->url) ? $banner->url : '#' }}">--}}
-{{--                <div style="background-image:url({{ getFull($banner->image) }});" class="slider-item">--}}
-{{--                    <div class="caption-wrapper">--}}
-{{--                        <div class="caption">--}}
-{{--                            <?php if ($banner->content): ?>--}}
-{{--                    <?= $banner->content ?>--}}
-{{--                    <?php endif ?>--}}
-{{--                        </div>--}}
-{{--                    </div>--}}
-{{--                </div>--}}
-{{--            </a>--}}
-{{--            <?php endforeach ?>--}}
-{{--        </div>--}}
-{{--    </div>--}}
-{{--    <?php endif ?>--}}
+    <!-- slider begin -->
+    <?php if ($banners): ?>
+    <div id="slider">
+        <div class="slider-main owl-carousel owl-theme">
+            <?php foreach ($banners as $banner): ?>
+            <a href="{{ !empty($banner->url) ? $banner->url : '#' }}">
+                <div style="background-image:url({{ getFull($banner->image) }});" class="slider-item">
+                    <div class="caption-wrapper">
+                        <div class="caption">
+                            <?php if ($banner->content): ?>
+                    <?= $banner->content ?>
+                    <?php endif ?>
+                        </div>
+                    </div>
+                </div>
+            </a>
+            <?php endforeach ?>
+        </div>
+    </div>
+    <?php endif ?>
 
 {{--    <?php $aboutSection = textBlock('about_section'); ?>--}}
 {{--    <?php if ($aboutSection && isset($aboutSection->title) && !empty($aboutSection->title)): ?>--}}
@@ -112,4 +112,4 @@
 {{--            </article>--}}
 {{--        </section>--}}
 {{--    @endif--}}
-{{--@endsection--}}
+@endsection

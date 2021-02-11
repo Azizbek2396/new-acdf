@@ -6,29 +6,29 @@
             </div>
             <div class="top-menu" style="display: inline-block;">
                 <ul>
-{{--                    @if (isset($header_menu))--}}
-{{--                        @foreach ($header_menu as $menu)--}}
-{{--                            <li>--}}
-{{--                                <a class="{{ ($sub = generateMenu($menu['childrens'], 'sub-menu animated fadeIn')) ? 'sub' : '' }}"--}}
-{{--                                   href="{{ $menu['item']->url }}">--}}
-{{--                                    {{ $menu['item']->title }}--}}
-{{--                                </a>--}}
-{{--                                <?= $sub ?>--}}
-{{--                            </li>--}}
-{{--                        @endforeach--}}
-{{--                    @endif--}}
+                    @if (isset($header_menu))
+                        @foreach ($header_menu as $menu)
+                            <li>
+                                <a class="{{ ($sub = generateMenu($menu['childrens'], 'sub-menu animated fadeIn')) ? 'sub' : '' }}"
+                                   href="{{ $menu['item']->url }}">
+                                    {{ $menu['item']->title }}
+                                </a>
+                                <?= $sub ?>
+                            </li>
+                        @endforeach
+                    @endif
                 </ul>
             </div>
             <ul class="lang">
-{{--                @foreach(LaravelLocalization::getSupportedLocales() as $localeCode => $properties)--}}
-{{--                    <li>--}}
-{{--                        <a rel="alternate" hreflang="{{ $localeCode }}"--}}
-{{--                           class="{{ $localeCode == \App::getLocale() ? 'active': '' }}"--}}
-{{--                           href="{{ LaravelLocalization::getLocalizedURL($localeCode, null, [], true) }}">--}}
-{{--                            {{ $properties['label'] }}--}}
-{{--                        </a>--}}
-{{--                    </li>--}}
-{{--                @endforeach--}}
+                @foreach(LaravelLocalization::getSupportedLocales() as $localeCode => $properties)
+                    <li>
+                        <a rel="alternate" hreflang="{{ $localeCode }}"
+                           class="{{ $localeCode == \App::getLocale() ? 'active': '' }}"
+                           href="{{ LaravelLocalization::getLocalizedURL($localeCode, null, [], true) }}">
+                            {{ $properties['label'] }}
+                        </a>
+                    </li>
+                @endforeach
             </ul>
             <div class="clearfix"></div>
         </div>
@@ -56,21 +56,21 @@
                 <div class="mmenu-lang-wrap">
                     <nav>
                         <ul class="mmenu-lang">
-{{--                            @foreach(LaravelLocalization::getSupportedLocales() as $localeCode => $properties)--}}
-{{--                                <li <?= $localeCode == \App::getLocale() ? "class='active'" : ''; ?> >--}}
-{{--                                    <a rel="alternate" hreflang="{{ $localeCode }}"--}}
-{{--                                       class="text-overflow-ellipsis"--}}
-{{--                                       href="{{ LaravelLocalization::getLocalizedURL($localeCode, null, [], true) }}">--}}
-{{--                                        {{ $properties['native'] }}--}}
-{{--                                    </a>--}}
-{{--                                </li>--}}
-{{--                            @endforeach--}}
+                            @foreach(LaravelLocalization::getSupportedLocales() as $localeCode => $properties)
+                                <li <?= $localeCode == \App::getLocale() ? "class='active'" : ''; ?> >
+                                    <a rel="alternate" hreflang="{{ $localeCode }}"
+                                       class="text-overflow-ellipsis"
+                                       href="{{ LaravelLocalization::getLocalizedURL($localeCode, null, [], true) }}">
+                                        {{ $properties['native'] }}
+                                    </a>
+                                </li>
+                            @endforeach
                         </ul>
                     </nav>
                 </div>
-{{--                @if (isset($header_menu))--}}
-{{--                    <?= generateMenuMobile($header_menu) ?>--}}
-{{--                @endif--}}
+                @if (isset($header_menu))
+                    <?= generateMenuMobile($header_menu) ?>
+                @endif
             </div>
         </div>
     </article>

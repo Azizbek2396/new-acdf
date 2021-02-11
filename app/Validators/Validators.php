@@ -36,4 +36,23 @@ class Validators {
             'order'         => 'required|integer',
         ], $this->messages);
     }
+
+    public function textblocks($request)
+    {
+        return Validator::make($request->all(), [
+            'title'         => 'nullable|string|max:255',
+            'name'         => 'nullable|string|max:255',
+            'content'         => 'required|string',
+            'image'            => 'nullable|image|mimes:jpeg,png,jpg|max:1024',
+            'status'         => 'required|integer',
+        ], $this->messages);
+    }
+
+    public function banners($request)
+    {
+        return Validator::make($request->all(), [
+            'image'            => 'nullable|image|mimes:jpeg,png,jpg|max:2048',
+            'url'              => 'required|string|max:255',
+        ], $this->messages);
+    }
 }

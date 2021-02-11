@@ -121,4 +121,24 @@ class MenuRepository
         }
         return $result;
     }
+
+    public static function getMenuForSite($name)
+    {
+        $menu = Menu::where('name', $name)->with('children')->first();
+        return self::getTreeForSite($menu);
+    }
+
+    public static function getTreeForSite($model)
+    {
+        if (count($model->children)){
+            $arr = [];
+            foreach ($model->children as $child) {
+                $arr[$child->id]['item'] = $child;
+                $arr[$child->id]['childrens'] = self::getTreeForSite($child);
+            }
+            return $arr;
+        }
+        return false;
+    }
+
 }
