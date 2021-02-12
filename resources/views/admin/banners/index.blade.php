@@ -30,7 +30,7 @@
                 <td><?= $item->title_display ?></td>
                 <td><?= $item->status_name ?></td>
                 <td>
-                    <img src="{{ dd(getThumbnail($item->image))  }}" alt="">
+                    <img src="{{ getThumbnail($item->image)  }}" alt="">
                 </td>
                 <td style="text-align: right;">
                     <a href="{{ route('mainbanners.edit', $item->id) }}" class="btn btn-sm btn-primary">

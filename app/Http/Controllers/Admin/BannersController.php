@@ -121,9 +121,25 @@ class BannersController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, $model)
     {
-        //
+        $model = $this->repo->getFindById($model);
+        $validator = new Validators;
+        $validator = $validator->banners($request);
+        if ($validator->fails()){
+            return redirect()->route('mainbanners.edit', $model->id)
+                ->withInput($request->input())
+                ->withErrors($validator);
+        }else {
+            $res = $this->repo->update($request, $model);
+            if ($res) {
+                $request->session()->flash('success', 'Success');
+                return redirect()->route('mainbanners.index');
+            }else {
+                $request->session()->flash('error', 'Error!');
+                return back();
+            }
+        }
     }
 
     /**
@@ -132,8 +148,15 @@ class BannersController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Request $request, $model)
     {
-        //
+        $result = $this->repo->delete($model);
+        if ($result) {
+            $request->session()->flash('success', 'Success!');
+            return redirect()->route('mainbanners.index');
+        }else {
+            $request->session()->flash('error', 'Error!');
+            return back();
+        }
     }
 }

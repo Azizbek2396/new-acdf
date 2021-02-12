@@ -120,7 +120,7 @@ if (!function_exists('getThumbnail')) {
     function getThumbnail($filename) {
         $file = public_path('uploads/thumbnails/' . $filename);
         if (file_exists($file)) {
-            return 'uploads/thumbnails/' . $filename;
+            return '/uploads/thumbnails/' . $filename;
         }
 
         return false;

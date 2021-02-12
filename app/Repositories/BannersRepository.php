@@ -27,11 +27,6 @@ class BannersRepository
         return $data;
     }
 
-    public function getStatuses()
-    {
-        return \Config::get('settings.statuses');
-    }
-
     public function create($request)
     {
         $data = $request->except('_token');
@@ -47,4 +42,26 @@ class BannersRepository
         $model = new TextBlock;
         return $model->fill($data)->save();
     }
+
+    public function update($request, $model)
+    {
+        $data = $request->except('_token');
+        if (isset($data['image'])) {
+            $image = ImagesRepository::upload($data['image']);
+            $data['image'] = $image;
+        }
+        return $model->fill($data)->update();
+    }
+
+    public function getStatuses()
+    {
+        return \Config::get('settings.statuses');
+    }
+
+    public function delete($model)
+    {
+        $model = $this->getFindById($model);
+        return $model->delete();
+    }
+
 }
