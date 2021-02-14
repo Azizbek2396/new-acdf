@@ -61,4 +61,10 @@ class TextBlocksRepository
         $model = $this->getFindById($model);
         return $model->delete();
     }
+
+    public static function getForSite($name)
+    {
+        $data = TextBlock::where('name', $name)->where('status', 1)->first();
+        return $data;
+    }
 }

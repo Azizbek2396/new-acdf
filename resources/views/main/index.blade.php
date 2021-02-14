@@ -24,21 +24,21 @@
     </div>
     <?php endif ?>
 
-{{--    <?php $aboutSection = textBlock('about_section'); ?>--}}
-{{--    <?php if ($aboutSection && isset($aboutSection->title) && !empty($aboutSection->title)): ?>--}}
-{{--    <section class="section pb-5">--}}
-{{--        <div class="container">--}}
-{{--            <div class="row">--}}
-{{--                <div class="col-12 mb-3 mt-5 text-center text-uppercase">--}}
-{{--                    <h1 class="h1 caption">{{ $aboutSection->title }}</h1>--}}
-{{--                </div>--}}
-{{--            </div>--}}
-{{--        </div>--}}
-{{--        <div class="container">--}}
-{{--            <?= $aboutSection->content ?>--}}
-{{--        </div>--}}
-{{--    </section>--}}
-{{--    <?php endif ?>--}}
+    <?php $aboutSection = textBlock('about_section'); ?>
+    <?php if ($aboutSection && isset($aboutSection->title) && !empty($aboutSection->title)): ?>
+    <section class="section pb-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 mb-3 mt-5 text-center text-uppercase">
+                    <h1 class="h1 caption">{{ $aboutSection->title }}</h1>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <?= $aboutSection->content ?>
+        </div>
+    </section>
+    <?php endif ?>
 {{--    <!-- news begin -->--}}
 {{--    @if(count($news) > 0)--}}
 {{--        <section class="section pb-5 light-primary">--}}

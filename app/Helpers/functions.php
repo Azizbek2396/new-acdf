@@ -94,9 +94,9 @@ if (!function_exists('deleteImage')) {
     {
         if ($fileName){
             $fullFile = public_path('uploads/' . $fileName);
-            $thumbnailFile = public_path('uploads/thumbnails' . $fileName);
+            $thumbnailFile = public_path('uploads/thumbnails/' . $fileName);
             $mediumFile = public_path('uploads/medium/' . $fileName);
-            $squareThumbnail = public_path('uploads/360x360' . $fileName);
+            $squareThumbnail = public_path('uploads/360x360/' . $fileName);
 
             if (file_exists($fullFile)){
                 unlink($fullFile);
@@ -106,7 +106,7 @@ if (!function_exists('deleteImage')) {
                 unlink($thumbnailFile);
             }
 
-            if ($squareThumbnail){
+            if (file_exists($squareThumbnail)){
                 unlink($squareThumbnail);
             }
             if (file_exists($mediumFile)){
@@ -134,5 +134,15 @@ if (!function_exists('getFull')) {
         if (file_exists($file)) {
             return '/uploads/'.$fileName;
         }
+    }
+}
+
+if (!function_exists('textBlock')) {
+    function textBlock($name){
+        $textblock = \App\Repositories\TextBlocksRepository::getForSite($name);
+        if ($textblock) {
+            return $textblock;
+        }
+        return false;
     }
 }
