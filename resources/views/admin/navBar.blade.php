@@ -4,9 +4,9 @@
             <li>
                 <a href="{{ route('dashboard') }}"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
             </li>
-{{--            <li>--}}
-{{--                <a href="{{ route('programs.index') }}"><i class="fa fa-table fa-fw"></i> Программы</a>--}}
-{{--            </li>--}}
+            <li>
+                <a href="{{ route('programs.index') }}"><i class="fa fa-table fa-fw"></i> Программы</a>
+            </li>
 {{--            <li>--}}
 {{--                <a href="{{ route('pages.index') }}"><i class="fa fa-table fa-fw"></i> Страницы</a>--}}
 {{--            </li>--}}

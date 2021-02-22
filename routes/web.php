@@ -36,7 +36,7 @@ function () {
 
     Route::group(['prefix' => 'admin', 'middleware' => ['auth']], function () {
        Route::get('/', [\App\Http\Controllers\Admin\DashboardController::class, 'index'])->name('dashboard');
-
+       Route::resource('programs', \App\Http\Controllers\Admin\ProgramsController::class);
        Route::resource('/menu', \App\Http\Controllers\Admin\MenuController::class);
        Route::get('/menu/{menu}/create-item', [\App\Http\Controllers\Admin\MenuController::class, 'create_item'])->name('menu.create-item');
        Route::post('/menu/{menu}/create-store', [\App\Http\Controllers\Admin\MenuController::class, 'store_item'])->name('menu.store-item');
