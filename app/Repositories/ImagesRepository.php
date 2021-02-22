@@ -58,7 +58,7 @@ class ImagesRepository
         $image = $image->resize($w, $h, function ($constraint) {
             $constraint->aspectRatio();
         });
-        if ($ratio) {
+        if ($rotate) {
             $image = $image->rotate(90);
         }
 

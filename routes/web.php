@@ -31,6 +31,9 @@ function () {
 
     Route::get('/', [\App\Http\Controllers\MainController::class, 'index'])->name('home');
 
+    Route::get('/news', [\App\Http\Controllers\NewsController::class, 'index'])->name('site.news');
+    Route::get('/news/{name}', [\App\Http\Controllers\NewsController::class, 'show'])->name('site.news.show');
+
     Route::group(['prefix' => 'admin', 'middleware' => ['auth']], function () {
        Route::get('/', [\App\Http\Controllers\Admin\DashboardController::class, 'index'])->name('dashboard');
 
@@ -40,6 +43,7 @@ function () {
        Route::get('/menu/{menu}/create-item/{item}/edit', [\App\Http\Controllers\Admin\MenuController::class, 'edit_item'])->name('menu.edit-item');
        Route::put('/menu/{menu}/create-item/{item}', [\App\Http\Controllers\Admin\MenuController::class, 'update_item'])->name('menu.update-item');
        Route::resource('/textblocks', \App\Http\Controllers\Admin\TextBlocksController::class);
+       Route::resource('/news', \App\Http\Controllers\Admin\NewsController::class);
        Route::resource('/mainbanners', \App\Http\Controllers\Admin\BannersController::class);
 
     });

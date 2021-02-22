@@ -15,22 +15,22 @@
 {{--                <a href="{{ route('publications.index') }}"><i class="fa fa-table fa-fw"></i> О нас пишут</a>--}}
 {{--            </li>--}}
 {{--            */ ?>--}}
-{{--            <?php /*--}}
-{{--            <li>--}}
-{{--                <a href="#"><i class="fa fa-table fa-fw"></i> Новости<span class="fa arrow"></span></a>--}}
-{{--                <ul class="nav nav-second-level">--}}
-{{--                    <li>--}}
-{{--                        <a href="{{ route('news.index') }}">Новости</a>--}}
-{{--                    </li>--}}
-{{--                    <li>--}}
-{{--                        <a href="{{ route('news-subjects.index') }}">Темы</a>--}}
-{{--                    </li>--}}
-{{--                </ul>--}}
-{{--            </li>--}}
-{{--            */ ?>--}}
-{{--            <li>--}}
-{{--                <a href="{{ route('news.index') }}"><i class="fa fa-table fa-fw"></i> Новости</a>--}}
-{{--            </li>--}}
+{{--<!--            --><?php ///*--}}
+{{--//            <li>--}}
+{{--//                <a href="#"><i class="fa fa-table fa-fw"></i> Новости<span class="fa arrow"></span></a>--}}
+{{--//                <ul class="nav nav-second-level">--}}
+{{--//                    <li>--}}
+{{--//                        <a href="{{ route('news.index') }}">Новости</a>--}}
+{{--//                    </li>--}}
+{{--//                    <li>--}}
+{{--//                        <a href="{{ route('news-subjects.index') }}">Темы</a>--}}
+{{--//                    </li>--}}
+{{--//                </ul>--}}
+{{--//            </li>--}}
+{{--//            */ ?>--}}
+            <li>
+                <a href="{{ route('news.index') }}"><i class="fa fa-table fa-fw"></i> Новости</a>
+            </li>
 {{--            <li>--}}
 {{--                <a href="{{ route('albums.index') }}"><i class="fa fa-table fa-fw"></i> Фотогалерея</a>--}}
 {{--            </li>--}}

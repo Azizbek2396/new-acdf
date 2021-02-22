@@ -55,4 +55,30 @@ class Validators {
             'url'              => 'required|string|max:255',
         ], $this->messages);
     }
+
+    public function news($request)
+    {
+        return Validator::make($request->all(), [
+            // 'subject_id' => 'required|integer',
+            'title'         => 'required|string|max:255',
+            'content' => 'required|string',
+            'image'            => 'required|image|mimes:jpeg,png,jpg|max:2048',
+            'description'  => 'nullable|string',
+            'date'        => 'nullable|date',
+            'status'      => 'required|integer',
+        ], $this->messages);
+    }
+
+    public function news_update($request)
+    {
+        return Validator::make($request->all(), [
+//            'subject_id' => 'required|integer',
+            'title'         => 'required|string|max:255',
+            'content' => 'required|string',
+            'image'            => 'nullable|image|mimes:jpeg,png,jpg|max:2048',
+            'description'  => 'nullable|string',
+            'date'        => 'nullable|date',
+            'status'      => 'required|integer',
+        ], $this->messages);
+    }
 }
