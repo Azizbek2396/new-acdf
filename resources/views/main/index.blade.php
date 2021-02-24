@@ -81,35 +81,35 @@
         </section>
     @endif
     <!-- news end -->
-{{--    @if(isset($programs) && count($programs))--}}
-{{--        <section class="section pb-5 light-primary-darken">--}}
-{{--            <div class="container">--}}
-{{--                <div class="row">--}}
-{{--                    <div class="col-12 text-center text-uppercase mt-5 mb-3">--}}
-{{--                        <h1 class="h1 caption">{{ __('main.programs') }}</h1>--}}
-{{--                    </div>--}}
-{{--                </div>--}}
-{{--            </div>--}}
-{{--            <article class="container">--}}
-{{--                <div class="row">--}}
-{{--                    @foreach($programs as $program)--}}
-{{--                        <div class="col-12 col-sm-6 col-lg-4 mt-4 mb-4">--}}
-{{--                            <div class="post ml-2 mr-2">--}}
-{{--                                <a class="post-img" href="{{ route('site.programs.show', $program->id) }}">--}}
-{{--                                    <img src="{{ getMedium($program->image) }}" alt="{{ $program->title }}"--}}
-{{--                                         class="img-fluid w-100">--}}
-{{--                                </a>--}}
-{{--                                <div class="post-body pt-3 pl-4 pr-4 pb-4">--}}
-{{--                                    <h3 class="post-title">--}}
-{{--                                        <a class="t-25s"--}}
-{{--                                           href="{{ route('site.programs.show', $program->id) }}">{{ $program->title }}</a>--}}
-{{--                                    </h3>--}}
-{{--                                </div>--}}
-{{--                            </div>--}}
-{{--                        </div>--}}
-{{--                    @endforeach--}}
-{{--                </div>--}}
-{{--            </article>--}}
-{{--        </section>--}}
-{{--    @endif--}}
+    @if(isset($programs) && count($programs))
+        <section class="section pb-5 light-primary-darken">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12 text-center text-uppercase mt-5 mb-3">
+                        <h1 class="h1 caption">{{ __('main.programs') }}</h1>
+                    </div>
+                </div>
+            </div>
+            <article class="container">
+                <div class="row">
+                    @foreach($programs as $program)
+                        <div class="col-12 col-sm-6 col-lg-4 mt-4 mb-4">
+                            <div class="post ml-2 mr-2">
+                                <a class="post-img" href="{{ route('site.programs.show', $program->id) }}">
+                                    <img src="{{ getMedium($program->image) }}" alt="{{ $program->title }}"
+                                         class="img-fluid w-100">
+                                </a>
+                                <div class="post-body pt-3 pl-4 pr-4 pb-4">
+                                    <h3 class="post-title">
+                                        <a class="t-25s"
+                                           href="{{ route('site.programs.show', $program->id) }}">{{ $program->title }}</a>
+                                    </h3>
+                                </div>
+                            </div>
+                        </div>
+                    @endforeach
+                </div>
+            </article>
+        </section>
+    @endif
 @endsection

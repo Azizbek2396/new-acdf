@@ -81,4 +81,26 @@ class Validators {
             'status'      => 'required|integer',
         ], $this->messages);
     }
+
+    public function programs($request)
+    {
+        return Validator::make($request->all(), [
+            'title'         => 'required|string|max:255',
+            'content' => 'required|string',
+            'image'            => 'required|image|mimes:jpeg,png,jpg|max:2048',
+            'description'  => 'nullable|string',
+            'status'      => 'required|integer',
+        ], $this->messages);
+    }
+
+    public function programs_update($request)
+    {
+        return Validator::make($request->all(), [
+            'title'         => 'required|string|max:255',
+            'content' => 'required|string',
+            'image'            => 'nullable|image|mimes:jpeg,png,jpg|max:2048',
+            'description'  => 'nullable|string',
+            'status'      => 'required|integer',
+        ], $this->messages);
+    }
 }

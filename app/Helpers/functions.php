@@ -231,3 +231,9 @@ if (!function_exists('monthList')) {
         return $arr;
     }
 }
+
+if (!function_exists('metaPublished')) {
+    function metaPublished($date) {
+        return \Carbon\Carbon::parse($date)->format('Y-m-d\TH:i:s0');
+    }
+}

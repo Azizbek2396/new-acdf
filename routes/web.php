@@ -31,6 +31,8 @@ function () {
 
     Route::get('/', [\App\Http\Controllers\MainController::class, 'index'])->name('home');
 
+    Route::get('/programs', [\App\Http\Controllers\ProgramsController::class, 'index'])->name('site.programs');
+    Route::get('/programs/{id}', [\App\Http\Controllers\ProgramsController::class, 'show'])->name('site.programs.show');
     Route::get('/news', [\App\Http\Controllers\NewsController::class, 'index'])->name('site.news');
     Route::get('/news/{name}', [\App\Http\Controllers\NewsController::class, 'show'])->name('site.news.show');
 

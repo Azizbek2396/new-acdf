@@ -3,6 +3,7 @@
 namespace App\Repositories;
 
 use App\Models\News;
+use App\Models\Program;
 use App\Models\TextBlock;
 
 class MainRepository
@@ -11,6 +12,11 @@ class MainRepository
     {
         $news = News::where('title->' . \App::getLocale(), '!=', '')->where('status', 1)->orderBy('date', 'DESC')->limit($limit)->get();
         return $news;
+    }
+    public function getPrograms($limit = 3)
+    {
+        $programs = Program::where('title->' . \App::getLocale(), '!=', '')->where('status', 1)->orderBy('id', 'DESC')->limit($limit)->get();
+        return $programs;
     }
     public function getBanners()
     {

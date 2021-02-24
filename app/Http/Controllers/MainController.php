@@ -18,6 +18,7 @@ class MainController extends Controller
     {
         $data = [
           'banners' => $this->repo->getBanners(),
+            'programs' => $this->repo->getPrograms(6),
             'news' => $this->repo->getNews(6),
         ];
         return view('main.index', $data);
