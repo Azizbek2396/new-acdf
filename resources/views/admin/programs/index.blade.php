@@ -5,7 +5,7 @@
         <div class="col-lg-12">
             <div class="object-link pull-right">
                 <strong>Перейти:</strong>
-{{--                <a href="{{ route('site.programs') }}" target="_blank">{{ route('site.programs') }}</a>--}}
+                <a href="{{ route('site.programs') }}" target="_blank">{{ route('site.programs') }}</a>
             </div>
             <h1 class="page-header">Программы</h1>
         </div>

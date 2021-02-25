@@ -34,9 +34,9 @@
 {{--            <li>--}}
 {{--                <a href="{{ route('albums.index') }}"><i class="fa fa-table fa-fw"></i> Фотогалерея</a>--}}
 {{--            </li>--}}
-{{--            <li>--}}
-{{--                <a href="{{ route('videos.index') }}"><i class="fa fa-table fa-fw"></i> Видеогалерея</a>--}}
-{{--            </li>--}}
+            <li>
+                <a href="{{ route('videos.index') }}"><i class="fa fa-table fa-fw"></i> Видеогалерея</a>
+            </li>
             <li>
                 <a href="{{ route('mainbanners.index') }}"><i class="fa fa-table fa-fw"></i> Баннеры</a>
             </li>

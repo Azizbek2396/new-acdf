@@ -3,8 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Repositories\NewsRepository;
+use Illuminate\Support\Facades\Input;
 use Intervention\Image\Facades\Image;
-use Symfony\Component\Console\Input\Input;
+//use Illuminate\Support\Facades\Input;
 
 class NewsController extends Controller
 {

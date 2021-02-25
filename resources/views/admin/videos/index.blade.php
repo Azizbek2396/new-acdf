@@ -5,13 +5,13 @@
         <div class="col-lg-12">
             <div class="object-link pull-right">
                 <strong>Перейти:</strong>
-                <a href="{{ route('site.news') }}" target="_blank">{{ route('site.news') }}</a>
+{{--                <a href="{{ route('site.videos') }}" target="_blank">{{ route('site.videos') }}</a>--}}
             </div>
-            <h1 class="page-header">Новости</h1>
+            <h1 class="page-header">Видеогалерея</h1>
         </div>
     </div>
     <div class="clearfix">
-        <a href="{{ route('news.create') }}" class="btn btn-primary pull-right">Добавить</a>
+        <a href="{{ route('videos.create') }}" class="btn btn-primary pull-right">Добавить</a>
     </div>
     <!-- /.row -->
     <div class="table-responsive">
@@ -21,8 +21,8 @@
             <tr>
                 <th>#</th>
                 <th>Название</th>
-                <?php /*<th>Тема</th>*/?>
                 <th>Сататус</th>
+                <th>Изображение</th>
                 <th></th>
             </tr>
             </thead>
@@ -32,16 +32,18 @@
             <tr>
                 <td><?= $i ?></td>
                 <td><?= $item->title_display ?></td>
-                <?php /*<td><?= $item->subject_title ?></td>*/ ?>
                 <td><?= $item->status_name ?></td>
+                <td>
+                    <img src="{{ getThumbnail($item->image) }}" alt="">
+                </td>
                 <td style="text-align: right;">
-                    <a href="{{ route('news.show', $item->id) }}" class="btn btn-sm btn-info">
+                    <a href="{{ route('videos.show', $item->id) }}" class="btn btn-sm btn-info">
                         <i class="glyphicon glyphicon-eye-open"></i>
                     </a>
-                    <a href="{{ route('news.edit', $item->id) }}" class="btn btn-sm btn-primary">
+                    <a href="{{ route('videos.edit', $item->id) }}" class="btn btn-sm btn-primary">
                         <i class="glyphicon glyphicon-pencil"></i>
                     </a>
-                    <?php echo Form::open(['route' => ['news.destroy',$item->id], 'method' => 'delete', 'style' => 'display: inline-block']) ?>
+                    <?php echo Form::open(['route' => ['videos.destroy',$item->id], 'method' => 'delete', 'style' => 'display: inline-block']) ?>
                     {{ Form::hidden('id', $item->id) }}
                     <button class="btn btn-sm btn-danger btnConfirm">
                         <i class='glyphicon glyphicon-trash'></i>
