@@ -103,4 +103,15 @@ class Validators {
             'status'      => 'required|integer',
         ], $this->messages);
     }
+
+    public function videos($request)
+    {
+        return Validator::make($request->all(), [
+            'title'         => 'nullable|string|max:255',
+            'date'        => 'nullable|date',
+            'content'        => 'required|string',
+            'image'            => 'required|image|mimes:jpeg,png,jpg|max:1024',
+            'status'         => 'required|integer',
+        ], $this->messages);
+    }
 }

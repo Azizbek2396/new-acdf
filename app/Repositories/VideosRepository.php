@@ -18,6 +18,16 @@ class VideosRepository
         return $data;
     }
 
+    public function getFindById($id)
+    {
+        $data = $this->model->where('id', $id)->where('status', 1)->first();
+        if (!$data){
+            abort(404);
+        }
+
+        return $data;
+    }
+
     public function create($request)
     {
         $data = $request->except('_token');
