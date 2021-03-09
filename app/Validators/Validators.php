@@ -114,4 +114,37 @@ class Validators {
             'status'         => 'required|integer',
         ], $this->messages);
     }
+
+    public function videos_update($request)
+    {
+        return Validator::make($request->all(), [
+            'title'         => 'nullable|string|max:255',
+            'date'        => 'nullable|date',
+            'content'        => 'required|string',
+            'image'            => 'nullable|image|mimes:jpeg,png,jpg|max:1024',
+            'status'         => 'required|integer',
+        ], $this->messages);
+    }
+
+    public function albums($request)
+    {
+        return Validator::make($request->all(), [
+            'title'         => 'required|string|max:255',
+            'image'         => 'required|image|mimes:jpeg,png,jpg|max:2048|dimensions:max_width:360,max_height:360',
+            'description'   => 'nullable|string',
+            'date'          => 'nullable|date',
+            'status'        => 'required|integer',
+        ], $this->messages);
+    }
+
+    public function albums_update($request)
+    {
+        return Validator::make($request->all(), [
+            'title'         => 'required|string|max:255',
+            'image'         => 'nullable|image|mimes:jpeg,png,jpg|max:2048|dimensions:max_width:360,max_height:360',
+            'description'   => 'nullable|string',
+            'date'          => 'nullable|date',
+            'status'        => 'required|integer',
+        ], $this->messages);
+    }
 }

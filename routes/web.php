@@ -35,6 +35,8 @@ function () {
     Route::get('/programs/{id}', [\App\Http\Controllers\ProgramsController::class, 'show'])->name('site.programs.show');
     Route::get('/news', [\App\Http\Controllers\NewsController::class, 'index'])->name('site.news');
     Route::get('/news/{name}', [\App\Http\Controllers\NewsController::class, 'show'])->name('site.news.show');
+    Route::get('/videos', [\App\Http\Controllers\VideosController::class, 'index'])->name('site.videos');
+    Route::get('/videos/{video}', [\App\Http\Controllers\VideosController::class, 'show'])->name('site.videos.show');
 
     Route::group(['prefix' => 'admin', 'middleware' => ['auth']], function () {
        Route::get('/', [\App\Http\Controllers\Admin\DashboardController::class, 'index'])->name('dashboard');
@@ -48,6 +50,12 @@ function () {
        Route::resource('/videos', \App\Http\Controllers\Admin\VideosController::class);
        Route::resource('/news', \App\Http\Controllers\Admin\NewsController::class);
        Route::resource('/mainbanners', \App\Http\Controllers\Admin\BannersController::class);
+       Route::resource('/albums', \App\Http\Controllers\Admin\AlbumsController::class);
+       Route::get('/image/create/{id}', [\App\Http\Controllers\Admin\ImageController::class, 'create'])->name('image.create');
+       Route::post('/image/store', [\App\Http\Controllers\Admin\ImageController::class, 'store'])->name('image.store');
+       Route::put('/image/update/{id}', [\App\Http\Controllers\Admin\ImageController::class, 'update'])->name('image.update');
+       Route::post('/image/destroy/{id}', [\App\Http\Controllers\Admin\ImageController::class, 'destroy'])->name('image.destroy');
+       Route::post('/image/move/{id}', [\App\Http\Controllers\Admin\ImageController::class, 'move'])->name('image.move');
 
     });
 });

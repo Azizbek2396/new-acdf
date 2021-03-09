@@ -3,20 +3,20 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Repositories\VideosRepository;
+use App\Repositories\AlbumsRepository;
 use App\Validators\Validators;
 use Illuminate\Http\Request;
 
-class VideosController extends Controller
+class AlbumsController extends Controller
 {
 
     protected $repo;
-    public function __construct(VideosRepository $repo)
+
+    public function __construct(AlbumsRepository $repo)
     {
         $this->repo = $repo;
         $this->middleware('auth');
     }
-
     /**
      * Display a listing of the resource.
      *
@@ -29,7 +29,7 @@ class VideosController extends Controller
             'model' => $model,
         ];
 
-        return view('admin.videos.index', $data);
+        return view('admin.albums.index', $data);
     }
 
     /**
@@ -40,10 +40,11 @@ class VideosController extends Controller
     public function create()
     {
         $data = [
-            'statuses' => $this->repo->getStatuses(),
+            'statuses'  => $this->repo->getStatuses(),
+            'visibleList'   => $this->repo->getVisibleList()
         ];
 
-        return view('admin.videos.create', $data);
+        return view('admin.albums.create');
     }
 
     /**
@@ -55,17 +56,17 @@ class VideosController extends Controller
     public function store(Request $request)
     {
         $validator = new Validators;
-        $validator = $validator->videos($request);
+        $validator = $validator->albums($request);
         if ($validator->fails()) {
-            return redirect()->route('videos.create')
+            return redirect()->route('albums.create')
                 ->withInput($request->input())
                 ->withErrors($validator);
-        }else {
+        } else {
             $res = $this->repo->create($request);
             if ($res) {
                 $request->session()->flash('success', 'Success!');
-                return redirect()->route('videos.index');
-            }else {
+                return redirect()->route('albums.index');
+            } else {
                 $request->session()->flash('error', 'Error!');
                 return back();
             }
@@ -81,23 +82,23 @@ class VideosController extends Controller
     public function show($model)
     {
         $model = $this->repo->getFindById($model);
-        $data = [
-            'model' => $model,
-        ];
-
-        return view('admin.videos.show', $data);
+        return view('admin.albums.show', [
+            'model'  => $model,
+            'albums' => $this->repo->getAlbumList(),
+            'photos' => $this->repo->getAlbumImages($model->id),
+        ]);
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param $model
-     * @return void
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
      */
     public function edit($model)
     {
         $model = $this->repo->getFindById($model);
-        if (isset($_GET['removeimage'])){
+        if (isset($_GET['removeimage'])) {
             deleteImage($model->image);
             $model->image = '';
             $model->save();
@@ -105,36 +106,35 @@ class VideosController extends Controller
             exit;
         }
 
-        $data = [
-            'statuses' => $this->repo->getStatuses(),
-            'model' => $model,
-        ];
-
-        return view('admin.videos.edit', $data);
+        return view('admin.albums.edit', [
+            'statuses'      => $this->repo->getStatuses(),
+            'model'         => $model,
+            'visibleList'   => $this->repo->getVisibleList(),
+        ]);
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param \Illuminate\Http\Request $request
-     * @param $model
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $model)
     {
         $model = $this->repo->getFindById($model);
         $validator = new Validators;
-        $validator = $validator->videos_update($request);
+        $validator = $validator->albums_update($request);
         if ($validator->fails()) {
-            return redirect()->route('videos.create', $model->id)
+            return redirect()->route('albums.edit', $model->id)
                 ->withInput($request->input())
                 ->withErrors($validator);
-        }else {
+        } else {
             $res = $this->repo->update($request, $model);
             if ($res) {
                 $request->session()->flash('success', 'Success!');
-                return redirect()->route('videos.show', $model->id);
-            }else {
+                return redirect()->route('albums.show', $model->id);
+            } else {
                 $request->session()->flash('error', 'Error!');
                 return back();
             }
@@ -144,8 +144,7 @@ class VideosController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param Request $request
-     * @param $model
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
     public function destroy(Request $request, $model)
@@ -153,10 +152,9 @@ class VideosController extends Controller
         $result = $this->repo->delete($model);
         if ($result) {
             $request->session()->flash('success', 'Success!');
-            return redirect()->route('videos.index');
-        }else {
-            $request->session()->flash('error', 'Error!');
-            return back();
+            return redirect()->route('albums.index');
         }
+        $request->session()->flash('error', 'Error!');
+        return back();
     }
 }

@@ -2,35 +2,44 @@
 
 namespace App\Repositories;
 
-use App\Models\Video;
+use App\Models\Albums;
+use App\Models\Images;
 
-class VideosRepository
+class AlbumsRepository
 {
     protected $model;
     public function __construct()
     {
-        $this->model = new Video();
+        $this->model = new Albums();
     }
 
     public function getAll($limit = 10)
     {
-        $data = $this->model->orderBy('id', 'DESC')->paginate($limit);
+        $data = $this->model->with('Photo')->orderBy('id', 'DESC')->paginate($limit);
         return $data;
     }
 
     public function getAllForSite($limit = 10)
     {
-        $data = $this->model->where('status', 1)->orderBy('id', 'desc')->paginate($limit);
+        $data = $this
+            ->model
+            ->orderBy('date', 'desc')
+            ->where(['status', 1, 'visible' => 1])
+            ->paginate($limit);
         return $data;
     }
 
     public function getFindByIdSite($id)
     {
-        $data = $this->model->where('id', $id)->where('status', 1)->first();
-        if (!$data){
+        $data = $this
+            ->model
+            ->where('id',$id)
+            ->where('title->'.\App::getLocale(),'!=','')
+            ->where('status',1)
+            ->first();
+        if (!$data) {
             abort(404);
         }
-
         return $data;
     }
 
@@ -40,7 +49,6 @@ class VideosRepository
         if (!$data) {
             abort(404);
         }
-
         return $data;
     }
 
@@ -51,8 +59,7 @@ class VideosRepository
             $image = ImagesRepository::upload($data['image']);
             $data['image'] = $image;
         }
-
-        $model = new Video;
+        $model = new Albums();
         return $model->fill($data)->save();
     }
 
@@ -63,7 +70,6 @@ class VideosRepository
             $image = ImagesRepository::upload($data['image']);
             $data['image'] = $image;
         }
-
         return $model->fill($data)->update();
     }
 
@@ -75,7 +81,27 @@ class VideosRepository
     public function delete($model)
     {
         $model = $this->getFindById($model);
+        foreach($model->Photo as $item) {
+            $item->delete();
+        }
         return $model->delete();
+    }
+
+    public function getAlbumImages($id, $limit = 10)
+    {
+        return Images::where('albums_id', $id)->orderBy('order', 'asc')->paginate($limit);
+    }
+
+    public function getAlbumList($limit = 100)
+    {
+        return ($this->model->limit($limit)->get())->mapWithKeys(function ($item) {
+            return [$item->id => $item->title];
+        });
+    }
+
+    public function getVisibleList()
+    {
+        return \Config::get('settings.visible');
     }
 
 }
