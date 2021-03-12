@@ -147,4 +147,27 @@ class Validators {
             'status'        => 'required|integer',
         ], $this->messages);
     }
+
+    public function image($request)
+    {
+        return Validator::make($request->all(), [
+            'albums_id'  => 'required|numeric|exists:albums,id',
+            'image'      => 'required|image',
+        ], $this->messages);
+    }
+
+    public function image_update($request)
+    {
+        return Validator::make($request->all(), [
+            'albums_id'  => 'required|numeric|exists:albums,id',
+            'image'      => 'nullable|image',
+        ], $this->messages);
+    }
+    public function image_move($request)
+    {
+        return Validator::make($request->all(), [
+            'id'         => 'required|numeric|exists:images,id',
+            'albums_id'  => 'required|numeric|exists:albums,id',
+        ], $this->messages);
+    }
 }

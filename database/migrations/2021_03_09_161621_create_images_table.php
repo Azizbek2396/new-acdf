@@ -20,6 +20,7 @@ class CreateImagesTable extends Migration
             $table->json('description')->nullable();
             $table->integer('order')->nullable();
             $table->foreign('albums_id')->references('id')->on('albums')->onDelete('CASCADE')->onUpdate('CASCADE');
+            $table->json('image_options')->nullable();
             $table->timestamps();
         });
     }

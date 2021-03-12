@@ -1,5 +1,7 @@
 <?php
 
+use Intervention\Image\Facades\Image;
+
 if (!function_exists('menu')) {
     function menu($name) {
         $menu = App\Repositories\MenuRepository::getMenuForSite($name);
@@ -235,5 +237,26 @@ if (!function_exists('monthList')) {
 if (!function_exists('metaPublished')) {
     function metaPublished($date) {
         return \Carbon\Carbon::parse($date)->format('Y-m-d\TH:i:s0');
+    }
+}
+
+if (!function_exists('getImageSizes')) {
+    function getImageSizes($photos) {
+        $arr = [];
+        if (empty($photos)) {
+            return false;
+        }
+        $height = 260;
+        foreach ($photos as $item) {
+            if (is_file(public_path(getMedium($item->image)))) {
+                $img = Image::make(public_path(getMedium($item->image)));
+                $arr[$item->id] = [
+                    'width' => round($height * ($img->getWidth() / $img->getHeight()), 2),
+                    'height' => $height,
+                ];
+                $img->destroy();
+            }
+        }
+        return $arr;
     }
 }
