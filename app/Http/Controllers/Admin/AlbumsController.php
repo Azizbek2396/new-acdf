@@ -44,7 +44,7 @@ class AlbumsController extends Controller
             'visibleList'   => $this->repo->getVisibleList()
         ];
 
-        return view('admin.albums.create');
+        return view('admin.albums.create', $data);
     }
 
     /**

@@ -7,9 +7,9 @@
             <li>
                 <a href="{{ route('programs.index') }}"><i class="fa fa-table fa-fw"></i> Программы</a>
             </li>
-{{--            <li>--}}
-{{--                <a href="{{ route('pages.index') }}"><i class="fa fa-table fa-fw"></i> Страницы</a>--}}
-{{--            </li>--}}
+            <li>
+                <a href="{{ route('pages.index') }}"><i class="fa fa-table fa-fw"></i> Страницы</a>
+            </li>
 {{--            <?php /*--}}
 {{--            <li>--}}
 {{--                <a href="{{ route('publications.index') }}"><i class="fa fa-table fa-fw"></i> О нас пишут</a>--}}

@@ -24,7 +24,7 @@ class AlbumsRepository
         $data = $this
             ->model
             ->orderBy('date', 'desc')
-            ->where(['status', 1, 'visible' => 1])
+            ->where(['status' => 1, 'visible' => 1])
             ->paginate($limit);
         return $data;
     }
@@ -89,7 +89,8 @@ class AlbumsRepository
 
     public function getAlbumImages($id, $limit = 10)
     {
-        return Images::where('albums_id', $id)->orderBy('order', 'asc')->paginate($limit);
+        $data = Images::where('albums_id', $id)->orderBy('order', 'asc')->paginate($limit);
+        return $data;
     }
 
     public function getAlbumList($limit = 100)

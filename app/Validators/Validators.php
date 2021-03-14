@@ -2,6 +2,7 @@
 
 namespace App\Validators;
 
+use App\Models\Page;
 use Illuminate\Support\Facades\Validator;
 
 class Validators {
@@ -169,5 +170,32 @@ class Validators {
             'id'         => 'required|numeric|exists:images,id',
             'albums_id'  => 'required|numeric|exists:albums,id',
         ], $this->messages);
+    }
+
+    public function pages($request)
+    {
+        $validator = Validator::make($request->all(), [
+            'title'        => 'required|string|max:255',
+            'name'         => 'nullable|string|max:255',
+            'content'      => 'required|string',
+            'image'        => 'nullable|image|mimes:jpeg,png,jpg|max:2048',
+            'description'  => 'nullable|string',
+            'status'       => 'required|integer',
+        ], $this->messages);
+
+        return $this->checkPageNameToDublicate($validator, $request);
+    }
+
+    public function checkPageNameToDublicate($validator, $request)
+    {
+        if ($request->name) {
+            $name = $request->name;
+            $page = Page::where('name', $name)->first();
+            if ($page) {
+                $validator->getMessageBag()->add('name', 'Страница с таким Названием для урла уже существует');
+
+            }
+        }
+        return $validator;
     }
 }

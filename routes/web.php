@@ -35,12 +35,15 @@ function () {
     Route::get('/programs/{id}', [\App\Http\Controllers\ProgramsController::class, 'show'])->name('site.programs.show');
     Route::get('/news', [\App\Http\Controllers\NewsController::class, 'index'])->name('site.news');
     Route::get('/news/{name}', [\App\Http\Controllers\NewsController::class, 'show'])->name('site.news.show');
+    Route::get('/photos', [\App\Http\Controllers\PhotosController::class, 'index'])->name('site.photos');
+    Route::get('/photos/{id}', [\App\Http\Controllers\PhotosController::class, 'show'])->name('site.photos.show');
     Route::get('/videos', [\App\Http\Controllers\VideosController::class, 'index'])->name('site.videos');
     Route::get('/videos/{video}', [\App\Http\Controllers\VideosController::class, 'show'])->name('site.videos.show');
 
     Route::group(['prefix' => 'admin', 'middleware' => ['auth']], function () {
        Route::get('/', [\App\Http\Controllers\Admin\DashboardController::class, 'index'])->name('dashboard');
-       Route::resource('programs', \App\Http\Controllers\Admin\ProgramsController::class);
+       Route::resource('/programs', \App\Http\Controllers\Admin\ProgramsController::class);
+       Route::resource('/pages', \App\Http\Controllers\Admin\PagesController::class);
        Route::resource('/menu', \App\Http\Controllers\Admin\MenuController::class);
        Route::get('/menu/{menu}/create-item', [\App\Http\Controllers\Admin\MenuController::class, 'create_item'])->name('menu.create-item');
        Route::post('/menu/{menu}/create-store', [\App\Http\Controllers\Admin\MenuController::class, 'store_item'])->name('menu.store-item');
