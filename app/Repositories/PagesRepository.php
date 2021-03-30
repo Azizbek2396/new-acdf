@@ -3,6 +3,7 @@
 namespace App\Repositories;
 
 use App\Models\Page;
+use Illuminate\Support\Facades\App;
 
 class PagesRepository
 {
@@ -25,6 +26,16 @@ class PagesRepository
             abort(404);
         }
 
+        return $data;
+    }
+
+    public function getFindByIdSite($name)
+    {
+        $data = $this->model->where('name', $name)->where('title->'.App::getLocale(),'!=','')->where('status', 1)->first();
+        if (!$data)
+        {
+            abort(404);
+        }
         return $data;
     }
 
@@ -61,6 +72,12 @@ class PagesRepository
             $data['name'] = toAscii($data['name']);
         }
         return $model->fill($data)->update();
+    }
+
+    public function delete($model)
+    {
+        $model = $this->getFindById($model);
+        return $model->delete();
     }
 
     public function generateName($name)

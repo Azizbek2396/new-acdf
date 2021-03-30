@@ -35,6 +35,7 @@ function () {
     Route::get('/programs/{id}', [\App\Http\Controllers\ProgramsController::class, 'show'])->name('site.programs.show');
     Route::get('/news', [\App\Http\Controllers\NewsController::class, 'index'])->name('site.news');
     Route::get('/news/{name}', [\App\Http\Controllers\NewsController::class, 'show'])->name('site.news.show');
+    Route::get('/pages/{name}', [\App\Http\Controllers\PagesController::class, 'show'])->name('site.pages.show');
     Route::get('/photos', [\App\Http\Controllers\PhotosController::class, 'index'])->name('site.photos');
     Route::get('/photos/{id}', [\App\Http\Controllers\PhotosController::class, 'show'])->name('site.photos.show');
     Route::get('/videos', [\App\Http\Controllers\VideosController::class, 'index'])->name('site.videos');

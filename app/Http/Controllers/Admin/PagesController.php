@@ -142,11 +142,19 @@ class PagesController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @param Request $request
+     * @param $model
+     * @return void
      */
-    public function destroy($id)
+    public function destroy(Request $request, $model)
     {
-        //
+        $result = $this->repo->delete($model);
+        if ($result) {
+            $request->session()->flash('success', 'Success!');
+            return redirect()->route('pages.index');
+        }else {
+            $request->session()->flash('error', 'Error!');
+            return back();
+        }
     }
 }
