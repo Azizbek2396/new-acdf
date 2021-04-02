@@ -54,6 +54,7 @@ function () {
        Route::resource('/videos', \App\Http\Controllers\Admin\VideosController::class);
        Route::resource('/news', \App\Http\Controllers\Admin\NewsController::class);
        Route::resource('/mainbanners', \App\Http\Controllers\Admin\BannersController::class);
+       Route::resource('/options', \App\Http\Controllers\Admin\OptionsController::class);
        Route::resource('/albums', \App\Http\Controllers\Admin\AlbumsController::class);
        Route::get('/image/create/{id}', [\App\Http\Controllers\Admin\ImageController::class, 'create'])->name('image.create');
        Route::post('/image/store', [\App\Http\Controllers\Admin\ImageController::class, 'store'])->name('image.store');

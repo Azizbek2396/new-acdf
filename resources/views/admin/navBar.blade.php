@@ -63,9 +63,9 @@
 {{--            <?php endif ?>--}}
 {{--            */ ?>--}}
 {{--            @endrole--}}
-{{--            <li>--}}
-{{--                <a href="{{ route('options.index') }}"><i class="fa fa-table fa-fw"></i> Контакты</a>--}}
-{{--            </li>--}}
+            <li>
+                <a href="{{ route('options.index') }}"><i class="fa fa-table fa-fw"></i> Контакты</a>
+            </li>
             <li>
                 <a href="{{ route('textblocks.index') }}"><i class="fa fa-table fa-fw"></i> Текстовые блоки</a>
             </li>

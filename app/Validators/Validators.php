@@ -198,4 +198,12 @@ class Validators {
         }
         return $validator;
     }
+
+    public function options($request)
+    {
+        return Validator::make($request->all(), [
+            'title'         => 'nullable|string|max:255',
+            'name'         => 'nullable|string',
+        ], $this->messages);
+    }
 }
