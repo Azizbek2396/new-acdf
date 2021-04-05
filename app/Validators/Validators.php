@@ -244,4 +244,13 @@ class Validators {
             'g-recaptcha-response'  => 'required|captcha',
         ], $this->messages);
     }
+
+    public function social_networks($request)
+    {
+        return Validator::make($request->all(), [
+            'url'        => 'required|string',
+            'title'         => 'nullable|string|max:255',
+            'icon'            => 'required',
+        ], $this->messages);
+    }
 }

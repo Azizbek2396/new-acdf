@@ -51,7 +51,7 @@ class MainRepository
 
     public static function getContact()
     {
-        $contacts = Option::whereIn('name', ['address', 'teslNumber', 'adminEmail', 'iframeMaps'])->get();
+        $contacts = Option::whereIn('name', ['address', 'telNumber', 'adminEmail', 'iframeMaps'])->get();
         $arr = [
             'address' => '',
             'telNumber' => '',

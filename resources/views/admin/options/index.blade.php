@@ -5,13 +5,13 @@
         <div class="col-lg-12">
             <div class="object-link pull-right">
                 <strong>Перейти:</strong>
-{{--                <a href="{{ route('site.contacts') }}" target="_blank">{{ route('site.contacts') }}</a>--}}
+                <a href="{{ route('site.contacts') }}" target="_blank">{{ route('site.contacts') }}</a>
             </div>
             <h1 class="page-header">Контакты</h1>
         </div>
     </div>
-{{--    isset($_GET['dev'])--}}
-    <?php if (true): ?>
+
+    <?php if (isset($_GET['dev'])): ?>
     <div class="clearfix">
         <a href="{{ route('options.create') }}" class="btn btn-primary pull-right">Добавить</a>
     </div>

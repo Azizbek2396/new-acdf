@@ -186,7 +186,7 @@ return [
         App\Providers\LangServiceProvider::class,
         Collective\Html\HtmlServiceProvider::class,
         Intervention\Image\ImageServiceProvider::class,
-        \Buzz\LaravelGoogleCaptcha\Captcha::class,
+//        Buzz\LaravelGoogleCaptcha\Captcha::class,
 
     ],
 

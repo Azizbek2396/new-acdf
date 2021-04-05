@@ -60,6 +60,7 @@ function () {
        Route::resource('/mainbanners', \App\Http\Controllers\Admin\BannersController::class);
        Route::resource('/options', \App\Http\Controllers\Admin\OptionsController::class);
        Route::resource('/albums', \App\Http\Controllers\Admin\AlbumsController::class);
+       Route::resource('/social-networks', \App\Http\Controllers\Admin\SocialNetworsController::class);
        Route::get('/image/create/{id}', [\App\Http\Controllers\Admin\ImageController::class, 'create'])->name('image.create');
        Route::post('/image/store', [\App\Http\Controllers\Admin\ImageController::class, 'store'])->name('image.store');
        Route::put('/image/update/{id}', [\App\Http\Controllers\Admin\ImageController::class, 'update'])->name('image.update');

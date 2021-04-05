@@ -266,3 +266,24 @@ if (!function_exists('getContacts')) {
         return \App\Repositories\MainRepository::getContact();
     }
 }
+
+if (!function_exists('deleteStorageFile')) {
+    function deleteStorageFile($fileName) {
+        if ($fileName) {
+            $file = storage_path('app/public' . $fileName);
+            if (file_exists($file)) {
+                unlink($file);
+            }
+        }
+    }
+}
+
+if (!function_exists('getStorageFile')) {
+    function getStorageFile($fileName)
+    {
+        $file = storage_path('app/public/'.$fileName);
+        if (file_exists($file)) {
+            return asset('storage/'.$fileName);
+        }
+    }
+}
