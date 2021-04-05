@@ -31,6 +31,10 @@ function () {
 
     Route::get('/', [\App\Http\Controllers\MainController::class, 'index'])->name('home');
 
+    Route::get('/contacts', [\App\Http\Controllers\MainController::class, 'contacts'])->name('site.contacts');
+    Route::post('/contacts/submit', [\App\Http\Controllers\MainController::class, 'contactSubmit'])->name('site.contact.submit');
+    Route::get('/vacancies', [\App\Http\Controllers\MainController::class, 'vacancies'])->name('site.vacancies');
+
     Route::get('/programs', [\App\Http\Controllers\ProgramsController::class, 'index'])->name('site.programs');
     Route::get('/programs/{id}', [\App\Http\Controllers\ProgramsController::class, 'show'])->name('site.programs.show');
     Route::get('/news', [\App\Http\Controllers\NewsController::class, 'index'])->name('site.news');
@@ -61,6 +65,7 @@ function () {
        Route::put('/image/update/{id}', [\App\Http\Controllers\Admin\ImageController::class, 'update'])->name('image.update');
        Route::post('/image/destroy/{id}', [\App\Http\Controllers\Admin\ImageController::class, 'destroy'])->name('image.destroy');
        Route::post('/image/move/{id}', [\App\Http\Controllers\Admin\ImageController::class, 'move'])->name('image.move');
+       Route::resource('/blocks', \App\Http\Controllers\Admin\BlocksController::class);
 
     });
 });

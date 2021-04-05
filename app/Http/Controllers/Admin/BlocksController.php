@@ -3,18 +3,17 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Repositories\OptionsRepository;
+use App\Repositories\BlocksRepository;
 use App\Validators\Validators;
 use Illuminate\Http\Request;
 
-class OptionsController extends Controller
+class BlocksController extends Controller
 {
-    protected  $repo;
+    protected $repo;
 
-    public function __construct(OptionsRepository $repo)
+    public function __construct(BlocksRepository $repo)
     {
         $this->repo = $repo;
-        $this->middleware('auth');
     }
 
     /**
@@ -22,14 +21,14 @@ class OptionsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index($type = "")
     {
-        $model = $this->repo->getAll(20);
+        $model = $this->repo->getAll($type, 20);
         $data = [
-            'model' => $model
+            'model' => $model,
         ];
 
-        return view('admin.options.index', $data);
+        return view('admin.blocks.index', $data);
     }
 
     /**
@@ -39,7 +38,12 @@ class OptionsController extends Controller
      */
     public function create()
     {
-        return view('admin.options.create');
+        $data = [
+            'statuses' => $this->repo->getStatuses(),
+            'types'    => $this->repo->getTypes(),
+        ];
+
+        return view('admin.blocks.create', $data);
     }
 
     /**
@@ -51,16 +55,16 @@ class OptionsController extends Controller
     public function store(Request $request)
     {
         $validator = new Validators;
-        $validator = $validator->options($request);
+        $validator = $validator->blocks($request);
         if ($validator->fails()) {
-            return redirect()->route('options.create')
+            return redirect()->route('blocks.create')
                 ->withInput($request->input())
                 ->withErrors($validator);
-        } else {
+        }else {
             $res = $this->repo->create($request);
             if ($res) {
                 $request->session()->flash('success', 'Success!');
-                return redirect()->route('options.index');
+                return redirect()->route('blocks.index');
             }else {
                 $request->session()->flash('error', 'Error!');
                 return back();
@@ -77,12 +81,11 @@ class OptionsController extends Controller
     public function show($model)
     {
         $model = $this->repo->getFindById($model);
-
         $data = [
-            'model' => $model,
+            'model' => $model
         ];
 
-        return view('admin.options.show', $data);
+        return view('admin.blocks.show', $data);
     }
 
     /**
@@ -94,11 +97,22 @@ class OptionsController extends Controller
     public function edit($model)
     {
         $model = $this->repo->getFindById($model);
+        if (isset($_GET['removeimage'])) {
+            deleteImage($model->image);
+            $model->image = '';
+            $model->save();
+            echo 'removed';
+
+            exit;
+        }
+
         $data = [
-            'model' => $model,
+            'statuses'  => $this->repo->getStatuses(),
+            'types'     => $this->repo->getTypes(),
+            'model'     => $model,
         ];
 
-        return view('admin.options.edit', $data);
+        return view('admin.blocks.edit', $data);
     }
 
     /**
@@ -112,18 +126,19 @@ class OptionsController extends Controller
     {
         $model = $this->repo->getFindById($model);
         $validator = new Validators;
-        $validator = $validator->options($request);
+        $validator = $validator->blocks_update($request);
         if ($validator->fails()) {
-            return redirect()->route('options.edit')
+            return redirect()->route('blocks.edit')
                 ->withInput($request->input())
                 ->withErrors($validator);
-        } else {
+        }else {
             $res = $this->repo->update($request, $model);
+
             if ($res) {
                 $request->session()->flash('success', 'Success!');
-                return redirect()->route('options.index');
+                return redirect()->route('blocks.show', $model);
             } else {
-                $request->session()->flash('error', 'Errors');
+                $request->session()->flash('error', 'Error!');
                 return back();
             }
         }
@@ -138,10 +153,10 @@ class OptionsController extends Controller
     public function destroy(Request $request, $model)
     {
         $result = $this->repo->delete($model);
-        if($result) {
-            $request->session()->flash('success', 'Success!');
-            return redirect()->route('options.index');
-        }else {
+        if ($result) {
+            $request->session()->flash('success', 'Success');
+            return redirect()->route('blocks.index');
+        } else {
             $request->session()->flash('error', 'Error!');
             return back();
         }

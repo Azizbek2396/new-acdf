@@ -7,18 +7,18 @@
                 </div>
                 <div class="col-xl-4 col-lg-6 m-t-30">
                     <p class="mb-lg-5">{{ __('main.acdf_label') }}</p>
-{{--                    <p>{!! isset($contacts['address']) ? $contacts['address'] : "" !!}</p>--}}
+                    <p>{!! isset($contacts['address']) ? $contacts['address'] : "" !!}</p>
                 </div>
                 <div class="col-xl-4 col-lg-6 m-t-30">
                     <p>{{ __('main.phone') }}:
-{{--                        <a href="tel:{{ isset($contacts['telNumber']) ? $contacts['telNumber'] : '' }}" class="text-decoration-none underline">--}}
-{{--                            {{ isset($contacts['telNumber']) ? $contacts['telNumber'] : "" }}--}}
-{{--                        </a>--}}
+                        <a href="tel:{{ isset($contacts['telNumber']) ? $contacts['telNumber'] : '' }}" class="text-decoration-none underline">
+                            {{ isset($contacts['telNumber']) ? $contacts['telNumber'] : "" }}
+                        </a>
                     </p>
                     <p>Email:
-{{--                        <a href="mailto:{{ isset($contacts['adminEmail']) ? $contacts['adminEmail'] : '' }}" class="text-decoration-none underline">--}}
-{{--                            {{ isset($contacts['adminEmail']) ? $contacts['adminEmail'] : "" }}--}}
-{{--                        </a>--}}
+                        <a href="mailto:{{ isset($contacts['adminEmail']) ? $contacts['adminEmail'] : '' }}" class="text-decoration-none underline">
+                            {{ isset($contacts['adminEmail']) ? $contacts['adminEmail'] : "" }}
+                        </a>
                     </p>
                     <p>{{__('main.social_media')}}<br></p>
 

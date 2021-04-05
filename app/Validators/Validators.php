@@ -3,6 +3,7 @@
 namespace App\Validators;
 
 use App\Models\Page;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 
 class Validators {
@@ -204,6 +205,43 @@ class Validators {
         return Validator::make($request->all(), [
             'title'         => 'nullable|string|max:255',
             'name'         => 'nullable|string',
+        ], $this->messages);
+    }
+
+    public function blocks(Request $request)
+    {
+        return Validator::make($request->all(), [
+            'type'          => 'required|integer',
+            'title'         => 'nullable|string|max:255',
+            'description'   => 'nullable|string|max:255',
+            'content'       => 'required|string',
+            'order'         => 'nullable|integer',
+            'status'        => 'required|integer',
+            'image'         => 'nullable|image|mimes:jpeg,png,jpg|max:1024',
+        ], $this->messages);
+    }
+
+    public function blocks_update(Request $request)
+    {
+        return Validator::make($request->all(), [
+            'type'          => 'required|integer',
+            'title'         => 'nullable|string|max:255',
+            'description'   => 'nullable|string|max:255',
+            'content'       => 'required|string',
+            'order'         => 'nullable|integer',
+            'status'        => 'required|integer',
+            'image'         => 'nullable|image|mimes:jpeg,png,jpg|max:1024',
+        ], $this->messages);
+    }
+
+    public function contact_submit(Request $request)
+    {
+        return Validator::make($request->all(), [
+            'name'                  => 'required|string|min:3|max:254',
+            'email'                 => 'required|email|max:254',
+            'subject'               => 'required|string|min:3|max:254',
+            'message'               => 'required|string|min:3|max:512',
+            'g-recaptcha-response'  => 'required|captcha',
         ], $this->messages);
     }
 }

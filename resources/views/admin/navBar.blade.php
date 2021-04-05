@@ -69,9 +69,9 @@
             <li>
                 <a href="{{ route('textblocks.index') }}"><i class="fa fa-table fa-fw"></i> Текстовые блоки</a>
             </li>
-{{--            <li>--}}
-{{--                <a href="{{ route('blocks.index') }}"><i class="fa fa-table fa-fw"></i> Блоки</a>--}}
-{{--            </li>--}}
+            <li>
+                <a href="{{ route('blocks.index') }}"><i class="fa fa-table fa-fw"></i> Блоки</a>
+            </li>
 {{--            <?php /*--}}
 {{--            <li>--}}
 {{--                <a href="{{ route('dispatch') }}"><i class="fa fa-table fa-fw"></i> Рассылка</a>--}}

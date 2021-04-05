@@ -260,3 +260,9 @@ if (!function_exists('getImageSizes')) {
         return $arr;
     }
 }
+
+if (!function_exists('getContacts')) {
+    function getContacts() {
+        return \App\Repositories\MainRepository::getContact();
+    }
+}
