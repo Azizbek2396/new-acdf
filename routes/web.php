@@ -58,6 +58,7 @@ function () {
        Route::resource('/videos', \App\Http\Controllers\Admin\VideosController::class);
        Route::resource('/news', \App\Http\Controllers\Admin\NewsController::class);
        Route::resource('/mainbanners', \App\Http\Controllers\Admin\BannersController::class);
+       Route::resource('/users', \App\Http\Controllers\Admin\UsersController::class, ['middleware' => ['role:admin']]);
        Route::resource('/options', \App\Http\Controllers\Admin\OptionsController::class);
        Route::resource('/albums', \App\Http\Controllers\Admin\AlbumsController::class);
        Route::resource('/social-networks', \App\Http\Controllers\Admin\SocialNetworsController::class);
