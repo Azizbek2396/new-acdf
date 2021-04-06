@@ -22,19 +22,19 @@
                     </p>
                     <p>{{__('main.social_media')}}<br></p>
 
-{{--                    <?php $social_network = App\Repositories\SocialNetworksRepository::getAllForSite(); ?>--}}
-{{--                    @if ($social_network)--}}
-{{--                        <div class="social-wrap">--}}
-{{--                            @foreach ($social_network as $sn)--}}
-{{--                                <a href="{{ $sn->url }}" title='{{ $sn->title }}'--}}
-{{--                                   class='social-link fa-stack fa-lg transition-025s'>--}}
-{{--                                    <i class="fa fa-circle fa-stack-2x"></i>--}}
-{{--                                    <i class="fa fa-stack-1x fa-black fa-{{ strtolower($sn->title) == 'telegram' ? 'paper-plane' : strtolower($sn->title) }}"--}}
-{{--                                       aria-hidden="true"></i>--}}
-{{--                                </a>--}}
-{{--                            @endforeach--}}
-{{--                        </div>--}}
-{{--                    @endif--}}
+                    <?php $social_network = App\Repositories\SocialNetworksRepository::getAllForSite(); ?>
+                    @if ($social_network)
+                        <div class="social-wrap">
+                            @foreach ($social_network as $sn)
+                                <a href="{{ $sn->url }}" title='{{ $sn->title }}'
+                                   class='social-link fa-stack fa-lg transition-025s'>
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-stack-1x fa-black fa-{{ strtolower($sn->title) == 'telegram' ? 'paper-plane' : strtolower($sn->title) }}"
+                                       aria-hidden="true"></i>
+                                </a>
+                            @endforeach
+                        </div>
+                    @endif
                 </div>
             </div>
         </div>

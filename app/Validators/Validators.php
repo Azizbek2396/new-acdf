@@ -253,4 +253,12 @@ class Validators {
             'icon'            => 'required',
         ], $this->messages);
     }
+
+    public function social_networks_update($request)
+    {
+        return Validator::make($request->all(), [
+            'url'        => 'required|string',
+            'title'         => 'nullable|string|max:255',
+        ], $this->messages);
+    }
 }
