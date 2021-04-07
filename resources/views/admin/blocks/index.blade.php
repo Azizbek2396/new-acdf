@@ -14,10 +14,10 @@
         </div>
     </div>
     <div class="clearfix text-right">
-{{--        <a href="{{ route('blocks.index') }}" class="btn btn-default" style="margin-left: 5px;">Все</a>--}}
-{{--        <a href="{{ route('blocks.index.filter', 'vacancy') }}" class="btn btn-default" style="margin-left: 5px;">Вакансии</a>--}}
-{{--        <a href="{{ route('blocks.index.filter', 'contact') }}" class="btn btn-default" style="margin-left: 5px;">Контакты</a>--}}
-{{--        <a href="{{ route('blocks.create') }}" class="btn btn-primary" style="margin-left: 5px;">Добавить</a>--}}
+        <a href="{{ route('blocks.index') }}" class="btn btn-default" style="margin-left: 5px;">Все</a>
+        <a href="{{ route('blocks.index.filter', 'vacancy') }}" class="btn btn-default" style="margin-left: 5px;">Вакансии</a>
+        <a href="{{ route('blocks.index.filter', 'contact') }}" class="btn btn-default" style="margin-left: 5px;">Контакты</a>
+        <a href="{{ route('blocks.create') }}" class="btn btn-primary" style="margin-left: 5px;">Добавить</a>
     </div>
     <!-- /.row -->
     <div class="table-responsive">

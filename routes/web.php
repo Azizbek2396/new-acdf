@@ -67,6 +67,7 @@ function () {
        Route::put('/image/update/{id}', [\App\Http\Controllers\Admin\ImageController::class, 'update'])->name('image.update');
        Route::post('/image/destroy/{id}', [\App\Http\Controllers\Admin\ImageController::class, 'destroy'])->name('image.destroy');
        Route::post('/image/move/{id}', [\App\Http\Controllers\Admin\ImageController::class, 'move'])->name('image.move');
+       Route::get('/{type}/blocks', [\App\Http\Controllers\Admin\BlocksController::class, 'index'])->name('blocks.index.filter');
        Route::resource('/blocks', \App\Http\Controllers\Admin\BlocksController::class);
 
     });

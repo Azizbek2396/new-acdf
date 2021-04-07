@@ -19,7 +19,7 @@ class BlocksRepository
 
     public function getAll($type = "", $limit = 10)
     {
-        if(isset($this->_type[$type]) && !empty($this->_types[$type])) {
+        if(isset($this->_types[$type]) && !empty($this->_types[$type])) {
             return $this->model->where('type', $this->_types[$type])->orderBy('created_at', 'desc')->paginate($limit);
         }
 

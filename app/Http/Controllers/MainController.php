@@ -22,6 +22,11 @@ class MainController extends Controller
             'programs' => $this->repo->getPrograms(6),
             'news' => $this->repo->getNews(6),
         ];
+//         if (\Auth::check()) {
+//           return view('main.index', $data);
+//         }else{
+//           return view('main.block');
+//         }
         return view('main.index', $data);
     }
 

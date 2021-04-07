@@ -5,10 +5,10 @@
                 <a href="{{ route('dashboard') }}"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
             </li>
             <li>
-                <a href="{{ route('programs.index') }}"><i class="fa fa-table fa-fw"></i> Программы</a>
+                <a href="{{ route('programs.index') }}"><i class="fa fa-book" aria-hidden="true"></i> Программы</a>
             </li>
             <li>
-                <a href="{{ route('pages.index') }}"><i class="fa fa-table fa-fw"></i> Страницы</a>
+                <a href="{{ route('pages.index') }}"><i class="fa fa-file-text" aria-hidden="true"></i> Страницы</a>
             </li>
 {{--            <?php /*--}}
 {{--            <li>--}}
@@ -29,16 +29,16 @@
 {{--//            </li>--}}
 {{--//            */ ?>--}}
             <li>
-                <a href="{{ route('news.index') }}"><i class="fa fa-table fa-fw"></i> Новости</a>
+                <a href="{{ route('news.index') }}"><i class="fa fa-newspaper-o" aria-hidden="true"></i> Новости</a>
             </li>
             <li>
-                <a href="{{ route('albums.index') }}"><i class="fa fa-table fa-fw"></i> Фотогалерея</a>
+                <a href="{{ route('albums.index') }}"><i class="fa fa-picture-o" aria-hidden="true"></i> Фотогалерея</a>
             </li>
             <li>
-                <a href="{{ route('videos.index') }}"><i class="fa fa-table fa-fw"></i> Видеогалерея</a>
+                <a href="{{ route('videos.index') }}"><i class="fa fa-video-camera" aria-hidden="true"></i> Видеогалерея</a>
             </li>
             <li>
-                <a href="{{ route('mainbanners.index') }}"><i class="fa fa-table fa-fw"></i> Баннеры</a>
+                <a href="{{ route('mainbanners.index') }}"><i class="fa fa-file-image-o" aria-hidden="true"></i> Баннеры</a>
             </li>
 {{--            <?php /* ?>--}}
 {{--            <li>--}}
@@ -46,10 +46,10 @@
 {{--            </li>--}}
 {{--            <?php */ ?>--}}
             <li>
-                <a href="{{ route('social-networks.index') }}"><i class="fa fa-table fa-fw"></i> Социальные сети</a>
+                <a href="{{ route('social-networks.index') }}"><i  class="fa fa-heart" aria-hidden="true"></i> Социальные сети</a>
             </li>
             <li>
-                <a href="{{ route('menu.index') }}"><i class="fa fa-table fa-fw"></i> Меню</a>
+                <a href="{{ route('menu.index') }}"><i class="fa fa-bars" aria-hidden="true"></i> Меню</a>
             </li>
 {{--            @role('admin')--}}
 {{--            <?php /*--}}
@@ -67,10 +67,10 @@
                 <a href="{{ route('options.index') }}"><i class="fa fa-table fa-fw"></i> Контакты</a>
             </li>
             <li>
-                <a href="{{ route('textblocks.index') }}"><i class="fa fa-table fa-fw"></i> Текстовые блоки</a>
+                <a href="{{ route('textblocks.index') }}"><i class="fa fa-text-width" aria-hidden="true"></i> Текстовые блоки</a>
             </li>
             <li>
-                <a href="{{ route('blocks.index') }}"><i class="fa fa-table fa-fw"></i> Блоки</a>
+                <a href="{{ route('blocks.index') }}"><i class="fa fa-th-large" aria-hidden="true"></i> Блоки</a>
             </li>
 {{--            <?php /*--}}
 {{--            <li>--}}
