@@ -3,6 +3,7 @@
 namespace App\Validators;
 
 use App\Models\Page;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 
@@ -261,4 +262,49 @@ class Validators {
             'title'         => 'nullable|string|max:255',
         ], $this->messages);
     }
+
+    public function roles($request)
+    {
+        return Validator::make($request->all(), [
+            'name'         => 'required|string|max:255',
+            'guard_name' => 'nullable|string|max:255',
+        ], $this->messages);
+    }
+
+    public function users($request)
+    {
+        $validator = Validator::make($request->all(), [
+            'name'     => 'required|string|max:255',
+            'username'     => 'required|string|max:255',
+            'role'     => 'required|integer',
+            'email'    => 'nullable|string|email|max:255',
+            'password' => 'required|string|min:6|confirmed',
+        ], $this->messages);
+
+        return $this->checkEmailToDublicate($validator, $request, 'Пользователь с таким E-mail ом уже существует');
+    }
+
+    public function users_update($request)
+    {
+        return Validator::make($request->all(), [
+            'name'     => 'required|string|max:255',
+            'username'     => 'required|string|max:255',
+            'role'     => 'required|integer',
+            'email'    => 'string|email|max:255',
+            'password' => 'nullable|min:6|confirmed',
+        ], $this->messages);
+    }
+
+    public function checkEmailToDublicate($validator, $request, $message)
+    {
+        if ($request->email) {
+            $email = $request->email;
+            $user = User::where('email', $email)->first();
+            if ($user) {
+                $validator->getMessageBag()->add('email', $message);
+            }
+        }
+        return $validator;
+    }
+
 }

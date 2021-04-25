@@ -3,15 +3,15 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Repositories\UsersRepository;
+use App\Repositories\RolesRepository;
 use App\Validators\Validators;
 use Illuminate\Http\Request;
 
-class UsersController extends Controller
+class RolesController extends Controller
 {
     protected $repo;
 
-    public function __construct(UsersRepository $repo)
+    public function __construct(RolesRepository $repo)
     {
         $this->repo = $repo;
         $this->middleware('auth');
@@ -24,12 +24,11 @@ class UsersController extends Controller
      */
     public function index()
     {
-        $users = $this->repo->getAll(20);
+        $roles = $this->repo->getAll(20);
         $data = [
-            'users' => $users
+            'roles' => $roles,
         ];
-
-        return view('admin.users.index', $data);
+        return view('admin.roles.index', $data);
     }
 
     /**
@@ -39,11 +38,10 @@ class UsersController extends Controller
      */
     public function create()
     {
-        $roles = $this->repo->getRolesList();
         $data = [
-            'roles' => $roles
+
         ];
-        return view('admin.users.create', $data);
+        return view('admin.roles.create', $data);
     }
 
     /**
@@ -55,16 +53,17 @@ class UsersController extends Controller
     public function store(Request $request)
     {
         $validator = new Validators();
-        $validator = $validator->users($request);
-        if (count($validator->errors()) > 0) {
-            return redirect()->route('users.create')
+        $validator = $validator->roles($request);
+
+        if ($validator->fails()) {
+            return redirect()->route('roles.create')
                 ->withInput($request->input())
                 ->withErrors($validator);
         } else {
             $res = $this->repo->create($request);
             if ($res) {
-                $request->session()->flash('success', 'Succuss');
-                return redirect()->route('users.index');
+                $request->session()->flash('success', 'Success');
+                return redirect()->route('roles.index');
             } else {
                 $request->session()->flash('error', 'Error');
                 return back();
@@ -75,34 +74,32 @@ class UsersController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param $user
-     * @return void
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
      */
-    public function show($user)
+    public function show($role)
     {
-        $user = $this->repo->getFindById($user);
+        $role = $this->repo->getFindById($role);
         $data = [
-            'user' => $user,
+            'role' => $role,
         ];
 
-        return view('admin.users.show', $data);
+        return view('admin.roles.show', $data);
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param $user
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($user)
+    public function edit($role)
     {
-        $user = $this->repo->getFindById($user);
+        $role = $this->repo->getFindById($role);
         $data = [
-            'user' => $user,
-            'roles' => $this->repo->getRolesList()
+            'role' => $role
         ];
-
-        return view('admin.users.edit', $data);
+        return view('admin.roles.edit', $data);
     }
 
     /**
@@ -112,21 +109,21 @@ class UsersController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $user)
+    public function update(Request $request, $role)
     {
-        $user = $this->repo->getFindById($user);
-        $validator = new Validators;
-        $validator = $validator->users_update($request);
-        if (count($validator->errors()) > 0) {
-                return redirect()->route('users.edit', $user-id)
-                    ->withInput($request->input())
-                    ->withErrors($validator);
+        $role = $this->repo->getFindById($role);
+        $validtor = new Validators;
+        $validtor = $validtor->roles($request);
+        if ($validtor->fails()) {
+            return redirect()->route('roles.edit')
+                ->withInput($request->input())
+                ->withErrors($validtor);
         } else {
-            $res = $this->repo->update($request, $user);
+            $res = $this->repo->update($request, $role);
             if ($res) {
                 $request->session()->flash('success', 'Success');
-                return redirect()->route('users.show', $user->id);
-            }else {
+                return redirect()->route('roles.index');
+            } else {
                 $request->session()->flash('error', 'Error');
                 return back();
             }
@@ -136,16 +133,15 @@ class UsersController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param Request $request
-     * @param $user
-     * @return void
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
      */
-    public function destroy(Request $request, $user)
+    public function destroy(Request $request, $role)
     {
-        $result = $this->repo->delete($user);
+        $result = $this->repo->delete($role);
         if ($result) {
-            $request->session()->flash('success', 'Success!');
-            return redirect()->route('users.index');
+            $request->session()->flash('success', 'Success');
+            return redirect()->route('roles.index');
         } else {
             $request->session()->flash('error', 'Error');
             return back();

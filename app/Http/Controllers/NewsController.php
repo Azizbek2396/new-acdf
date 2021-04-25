@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Repositories\NewsRepository;
-use Illuminate\Support\Facades\Input;
+use Core\Input;
 use Intervention\Image\Facades\Image;
 
 class NewsController extends Controller

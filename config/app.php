@@ -187,6 +187,7 @@ return [
         Collective\Html\HtmlServiceProvider::class,
         Intervention\Image\ImageServiceProvider::class,
 //        Buzz\LaravelGoogleCaptcha\Captcha::class,
+        Spatie\Permission\PermissionServiceProvider::class,
 
     ],
 

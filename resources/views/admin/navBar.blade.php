@@ -51,18 +51,18 @@
             <li>
                 <a href="{{ route('menu.index') }}"><i class="fa fa-bars" aria-hidden="true"></i> Меню</a>
             </li>
-{{--            @role('admin')--}}
-{{--            <?php /*--}}
-{{--            <li>--}}
-{{--                <a href="{{ route('users.index') }}"><i class="fa fa-users fa-fw"></i> Пользователи</a>--}}
-{{--            </li>--}}
-{{--            <?php if (isset($_GET['dev'])): ?>--}}
-{{--                <li>--}}
-{{--                    <a href="{{ route('roles.index') }}"><i class="fa fa-users fa-fw"></i> Роли</a>--}}
-{{--                </li>--}}
-{{--            <?php endif ?>--}}
-{{--            */ ?>--}}
-{{--            @endrole--}}
+            @role('admin')
+                <?php ?>
+                    <li>
+                        <a href="{{ route('users.index') }}"><i class="fa fa-users fa-fw"></i> Пользователи</a>
+                    </li>
+                            <?php if (isset($_GET['dev'])): ?>
+                        <li>
+                            <a href="{{ route('roles.index') }}"><i class="fa fa-users fa-fw"></i> Роли</a>
+                        </li>
+                            <?php endif ?>
+                 <?php ?>
+            @endrole
             <li>
                 <a href="{{ route('options.index') }}"><i class="fa fa-table fa-fw"></i> Контакты</a>
             </li>
