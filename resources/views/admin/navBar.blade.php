@@ -51,18 +51,76 @@
             <li>
                 <a href="{{ route('menu.index') }}"><i class="fa fa-bars" aria-hidden="true"></i> Меню</a>
             </li>
-            @role('admin')
-                <?php ?>
-                    <li>
-                        <a href="{{ route('users.index') }}"><i class="fa fa-users fa-fw"></i> Пользователи</a>
+
+            <li class="nav-item nav-dropdown">
+                <a class="nav-link  nav-dropdown-toggle" href="#">
+                    <i class="fa fa-users fa-fw">
+
+                    </i>
+                    User management
+                </a>
+                <ul class="nav-dropdown-items user-dropdawn">
+                    <li class="nav-item">
+                        <a href="{{ route("permissions.index") }}" class="nav-link {{ request()->is('admin/permissions') || request()->is('admin/permissions/*') ? 'active' : '' }}">
+                            <i class="fa fas fa-unlock-alt fa-fw">
+
+                            </i>
+                            Разрешение
+                        </a>
                     </li>
-                            <?php if (isset($_GET['dev'])): ?>
-                        <li>
-                            <a href="{{ route('roles.index') }}"><i class="fa fa-users fa-fw"></i> Роли</a>
-                        </li>
-                            <?php endif ?>
-                 <?php ?>
-            @endrole
+                    <li class="nav-item">
+                        <a href="{{ route("roles.index") }}" class="nav-link {{ request()->is('admin/roles') || request()->is('admin/roles/*') ? 'active' : '' }}">
+                            <i class="fa fa-fw fas fa-briefcase">
+
+                            </i>
+                            Роли
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{{ route("users.index") }}" class="nav-link {{ request()->is('admin/users') || request()->is('admin/users/*') ? 'active' : '' }}">
+                            <i class="fa fa-user fa-fw">
+
+                            </i>
+                            Пользователи
+                        </a>
+                    </li>
+                </ul>
+            </li>
+
+{{--            <li class="nav-item dropdown">--}}
+{{--                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">--}}
+{{--                    User management--}}
+{{--                </a>--}}
+{{--                <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">--}}
+{{--                    <li>--}}
+{{--                        <a href="{{ route('users.index') }}" class="dropdown-item"><i class="fa fa-users fa-fw"></i> Пользователи</a>--}}
+{{--                    </li>--}}
+
+{{--                    <li>--}}
+{{--                        <a href="{{ route('roles.index') }}" class="dropdown-item"><i class="fa fa-fw fas fa-briefcase"></i> Роли</a>--}}
+{{--                    </li>--}}
+
+{{--                    <li>--}}
+{{--                        <a href="{{ route('permissions.index') }}" class="dropdown-item"><i class="fa fas fa-unlock-alt fa-fw"></i>Разрешение</a>--}}
+{{--                    </li>--}}
+{{--                </ul>--}}
+
+{{--            </li>--}}
+{{--            @role('admin')--}}
+{{--                <?php ?>--}}
+{{--                    <li>--}}
+{{--                        <a href="{{ route('users.index') }}"><i class="fa fa-users fa-fw"></i> Пользователи</a>--}}
+{{--                    </li>--}}
+{{--                            <?php if (isset($_GET['dev'])): ?>--}}
+{{--                    <li>--}}
+{{--                        <a href="{{ route('roles.index') }}"><i class="fa fa-fw fas fa-briefcase"></i> Роли</a>--}}
+{{--                    </li>--}}
+{{--                        <?php endif ?>--}}
+{{--                    <li>--}}
+{{--                        <a href="{{ route('permissions.index') }}"><i class="fa fas fa-unlock-alt fa-fw"></i>Разрешение</a>--}}
+{{--                    </li>--}}
+{{--                 <?php ?>--}}
+{{--            @endrole--}}
             <li>
                 <a href="{{ route('options.index') }}"><i class="fa fa-table fa-fw"></i> Контакты</a>
             </li>

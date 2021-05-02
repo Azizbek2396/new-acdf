@@ -17,7 +17,7 @@
             <tr>
                 <th>#</th>
                 <th>Name</th>
-                <th>Guard Name</th>
+                <th>Permissions</th>
             </tr>
             </thead>
             <?php if ($roles): ?>
@@ -26,7 +26,11 @@
             <tr>
                 <td><?= $i ?></td>
                 <td><?= $role->name?$role->name:"<span style='color:red;'>Нет значение</span>" ?></td>
-                <td><?= $role->guard_name?$role->guard_name:"<span style='color:red;'>Нет значение</span>" ?></td>
+                <td>
+                    @foreach($role->permissions()->pluck('name') as $permission)
+                        <span class="badge badge-info">{{ $permission }}</span>
+                    @endforeach
+                </td>
                 <?php  ?>
 							<td style="text-align: right;">
 								<a href="{{ route('roles.show', $role->id) }}" class="btn btn-sm btn-info">

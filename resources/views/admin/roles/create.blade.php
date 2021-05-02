@@ -11,5 +11,6 @@
     </div>
     <br>
     <?= View::make('admin.roles._form', [
+        'permissions' => $permissions
     ]) ?>
 @endsection

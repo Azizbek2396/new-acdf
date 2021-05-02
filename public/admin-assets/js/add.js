@@ -1,4 +1,4 @@
-$.fn.hasAttr = function(name) {  
+$.fn.hasAttr = function(name) {
    return this.attr(name) !== undefined;
 };
 $(document).ready(function(){
@@ -98,5 +98,32 @@ $(document).ready(function(){
 	  if ($('.number_format').length > 0) {
 	    $('.number_format').number( true, 2, '.', ' ');
 	  }
+
+	  // Permission SelecetAll and Deselectall buttons
+
+    $('.select-all').click(function () {
+        let $select2 = $(this).parent().siblings('.select2')
+        $select2.find('option').prop('selected', 'selected')
+        $select2.trigger('change')
+    })
+    $('.deselect-all').click(function () {
+        let $select2 = $(this).parent().siblings('.select2')
+        $select2.find('option').prop('selected', '')
+        $select2.trigger('change')
+    })
+
+    $('.select2').select2()
+
+    $('.treeview').each(function () {
+        var shouldExpand = false
+        $(this).find('li').each(function () {
+            if ($(this).hasClass('active')) {
+                shouldExpand = true
+            }
+        })
+        if (shouldExpand) {
+            $(this).addClass('active')
+        }
+    })
 
 });

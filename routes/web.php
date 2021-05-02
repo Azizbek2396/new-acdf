@@ -61,6 +61,7 @@ function () {
        Route::resource('/users', \App\Http\Controllers\Admin\UsersController::class);
 //        ['middleware' => ['role:admin']]
        Route::resource('roles', \App\Http\Controllers\Admin\RolesController::class);
+       Route::resource('permissions', \App\Http\Controllers\Admin\PermissionsController::class);
        Route::resource('/options', \App\Http\Controllers\Admin\OptionsController::class);
        Route::resource('/albums', \App\Http\Controllers\Admin\AlbumsController::class);
        Route::resource('/social-networks', \App\Http\Controllers\Admin\SocialNetworsController::class);

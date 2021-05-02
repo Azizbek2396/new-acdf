@@ -12,16 +12,6 @@ class RolesRepository
         return $data;
     }
 
-    public function getAllForSite($limit = 10)
-    {
-
-    }
-
-    public function getFindByIdSite($id)
-    {
-
-    }
-
     public function getFindById($id)
     {
         $data = Role::whereId($id)->first();
@@ -33,9 +23,14 @@ class RolesRepository
 
     public function create($request)
     {
-        $data = $request->except('_token');
-        $model = new Role;
-        return $model->fill($data)->save();
+        $data = $request->except('_token', 'permission');
+        $role = Role::create($data);
+        $permissions = $request->input('permission') ? $request->input('permission') : [];
+       $role->givePermissionTo($permissions);
+        if (! $role){
+           return false;
+       }
+        return true;
     }
 
     public function update($request, $model)

@@ -307,4 +307,11 @@ class Validators {
         return $validator;
     }
 
+    public function permissions($request)
+    {
+        return Validator::make($request->all(), [
+            'name' => 'required|string',
+        ], $this->messages);
+    }
+
 }

@@ -3,16 +3,15 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Models\Permission;
-use App\Repositories\RolesRepository;
+use App\Repositories\PermissionsRepository;
 use App\Validators\Validators;
 use Illuminate\Http\Request;
 
-class RolesController extends Controller
+class PermissionsController extends Controller
 {
     protected $repo;
 
-    public function __construct(RolesRepository $repo)
+    public function __construct(PermissionsRepository $repo)
     {
         $this->repo = $repo;
         $this->middleware('auth');
@@ -25,11 +24,12 @@ class RolesController extends Controller
      */
     public function index()
     {
-        $roles = $this->repo->getAll(20);
+        $permissions = $this->repo->getAll(20);
         $data = [
-            'roles' => $roles,
+            'permissions' => $permissions
         ];
-        return view('admin.roles.index', $data);
+
+        return view('admin.permissions.index', $data);
     }
 
     /**
@@ -39,11 +39,7 @@ class RolesController extends Controller
      */
     public function create()
     {
-        $permissions = Permission::get()->pluck('name', 'name');
-        $data = [
-            'permissions' => $permissions
-        ];
-        return view('admin.roles.create', $data);
+        return view('admin.permissions.create');
     }
 
     /**
@@ -55,22 +51,22 @@ class RolesController extends Controller
     public function store(Request $request)
     {
         $validator = new Validators();
-        $validator = $validator->roles($request);
-
-        if ($validator->fails()) {
-            return redirect()->route('roles.create')
+        $validator = $validator->permissions($request);
+        if (count($validator->errors()) > 0) {
+            return redirect()->route('permissions.create')
                 ->withInput($request->input())
                 ->withErrors($validator);
         } else {
-            $res = $this->repo->create($request);
-            if ($res) {
+            $result = $this->repo->create($request);
+            if ($result) {
                 $request->session()->flash('success', 'Success');
-                return redirect()->route('roles.index');
+                return redirect()->route('permissions.index');
             } else {
                 $request->session()->flash('error', 'Error');
                 return back();
             }
         }
+
     }
 
     /**
@@ -79,14 +75,14 @@ class RolesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($role)
+    public function show($id)
     {
-        $role = $this->repo->getFindById($role);
+        $permission = $this->repo->getFindById($id);
         $data = [
-            'role' => $role,
+            'permission' => $permission,
         ];
 
-        return view('admin.roles.show', $data);
+        return view('admin.permissions.show', $data);
     }
 
     /**
@@ -95,13 +91,15 @@ class RolesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($role)
+    public function edit($id)
     {
-        $role = $this->repo->getFindById($role);
+        $permission = $this->repo->getFindById($id);
+
         $data = [
-            'role' => $role
+            'permission' => $permission
         ];
-        return view('admin.roles.edit', $data);
+
+        return view('admin.permissions.edit', $data);
     }
 
     /**
@@ -111,20 +109,21 @@ class RolesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $role)
+    public function update(Request $request, $id)
     {
-        $role = $this->repo->getFindById($role);
-        $validtor = new Validators;
-        $validtor = $validtor->roles($request);
-        if ($validtor->fails()) {
-            return redirect()->route('roles.edit')
+        $model = $this->repo->getFindById($id);
+        $validator = new Validators();
+        $validator = $validator->permissions($request);
+
+        if (count($validator->errors()) > 0) {
+            return redirect()->route('permissions.create', $model)
                 ->withInput($request->input())
-                ->withErrors($validtor);
+                ->withErrors($validator);
         } else {
-            $res = $this->repo->update($request, $role);
-            if ($res) {
+            $result = $this->repo->update($request, $model);
+            if($result) {
                 $request->session()->flash('success', 'Success');
-                return redirect()->route('roles.index');
+                return redirect()->route('permissions.index');
             } else {
                 $request->session()->flash('error', 'Error');
                 return back();
@@ -138,13 +137,13 @@ class RolesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Request $request, $role)
+    public function destroy(Request $request, $id)
     {
-        $result = $this->repo->delete($role);
-        if ($result) {
+        $result = $this->repo->delete($id);
+        if ($request) {
             $request->session()->flash('success', 'Success');
-            return redirect()->route('roles.index');
-        } else {
+            return redirect()->route('permissions.index');
+        }else {
             $request->session()->flash('error', 'Error');
             return back();
         }
